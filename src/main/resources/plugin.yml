@@ -1,0 +1,10 @@
+name: Itemcustomizer
+version: '${project.version}'
+main: vxrp.me.itemcustomizer.Itemcustomizer
+api-version: '1.19'
+commands:
+  itemcustomizer:
+    aliases: "customizer"
+  createcustom:
+
+
