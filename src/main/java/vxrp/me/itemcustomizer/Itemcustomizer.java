@@ -10,7 +10,6 @@ import vxrp.me.itemcustomizer.Menus.UnderMenus.Enchants.EnchantsAttackMenu;
 import vxrp.me.itemcustomizer.Menus.UnderMenus.Enchants.EnchantsPickMenu;
 import vxrp.me.itemcustomizer.Menus.UnderMenus.Enchants.EnchatsMovementMenu;
 import vxrp.me.itemcustomizer.Menus.UnderMenus.ItemFlags.ItemFlagMenu;
-import vxrp.me.itemcustomizer.Menus.UnderMenus.ItemSelection.ItemSelectMenu;
 
 public final class Itemcustomizer extends JavaPlugin {
 
@@ -28,7 +27,6 @@ public final class Itemcustomizer extends JavaPlugin {
     public void Listeners() {
         getServer().getPluginManager().registerEvents(new CreateCustomMenu(), this);
         getServer().getPluginManager().registerEvents(new ItemcustomizerMenu(), this);
-        getServer().getPluginManager().registerEvents(new ItemSelectMenu(), this);
         getServer().getPluginManager().registerEvents(new ConfirmMenu(), this);
         getServer().getPluginManager().registerEvents(new ItemFlagMenu(), this);
         getServer().getPluginManager().registerEvents(new SetDisplayName(this), this);

@@ -20,13 +20,12 @@ public class Itemcustomizer implements CommandExecutor {
                 } else if (args.length == 1) {
                     if (args[0].equals("help".toLowerCase())) {
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7=============== &b&lItemCustomizer &7| &c&lHelp&7 ==============="));
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&nCommand Explanations"));
                         player.sendMessage(" ");
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/Customize | &7With this Command you can Customize the Item"));
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7   currently in your hand."));
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&nCommand Explanations"));
                         player.sendMessage(" ");
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/CreateCustom | &7With this Command you can create a"));
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7   completely CustomItem"));
+                        player.sendMessage(" ");
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7===================================================="));
                     }
 
@@ -34,7 +33,7 @@ public class Itemcustomizer implements CommandExecutor {
                         ItemcustomizerMenu.OpenMenu(player);
                     }
 
-                    else {
+                    else if (!args[0].equals("help".toLowerCase())){
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Usage: &b/itemcustomizer &7| &bcustomizer &7{&bhelp&7|&bmenu&7}"));
                     }
                 }

@@ -23,7 +23,6 @@ import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 import vxrp.me.itemcustomizer.Menus.UnderMenus.Enchants.EnchantsGroupMenu;
 import vxrp.me.itemcustomizer.Menus.UnderMenus.ItemFlags.ItemFlagMenu;
-import vxrp.me.itemcustomizer.Menus.UnderMenus.ItemSelection.ItemSelectMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +35,6 @@ public class CreateCustomMenu implements Listener {
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         if (event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) {
-            if (event.getSlot() == 13) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                ItemSelectMenu.OpenMenu(player);
-            }
             if (event.getSlot() == 20) {
                 player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
                 ItemFlagMenu.OpenMenu(player);
