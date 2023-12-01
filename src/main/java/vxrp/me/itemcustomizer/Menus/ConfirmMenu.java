@@ -23,12 +23,11 @@ public class ConfirmMenu implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        if (event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', confirm_menuname))) {
-            if (event.getSlot() == 4) {
-                player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
-                ConfirmMaps.confirmed.put(player.getUniqueId(), true);
-                CreateCustomMenu.OpenMenu(player);
-            }
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', confirm_menuname))) return;
+        if (event.getSlot() == 4) {
+            player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
+            ConfirmMaps.confirmed.put(player.getUniqueId(), true);
+            CreateCustomMenu.OpenMenu(player);
         }
     }
 

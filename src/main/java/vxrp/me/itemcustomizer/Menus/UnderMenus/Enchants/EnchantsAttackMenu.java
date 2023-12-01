@@ -22,9 +22,7 @@ public class EnchantsAttackMenu implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        if (event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) {
-
-        }
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) return;
     }
 
     public static void OpenMenu(Player player) {

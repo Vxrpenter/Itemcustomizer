@@ -34,29 +34,30 @@ public class CreateCustomMenu implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        if (event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) {
-            if (event.getSlot() == 20) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                ItemFlagMenu.OpenMenu(player);
-            }
-            if (event.getSlot() == 53) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                ConfirmMenu.OpenMenu(player);
-            }
-            if (event.getSlot() == 49) {
-                player.playSound(player, Sound.BLOCK_ANVIL_USE, 10, 1);
-                player.getInventory().addItem(CreateItem(player));
-                player.closeInventory();
-            }
-            if (event.getSlot() == 22) {
-                SetDisplayNameMaps.running.put(player.getUniqueId(), true);
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c!!! &7Please enter the DisplayName in the chat &c!!!"));
-                player.closeInventory();
-            }
-            if (event.getSlot() == 24) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                EnchantsGroupMenu.OpenMenu(player);
-            }
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) return;
+        event.setCancelled(true);
+
+        if (event.getSlot() == 20) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            ItemFlagMenu.OpenMenu(player);
+        }
+        if (event.getSlot() == 53) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            ConfirmMenu.OpenMenu(player);
+        }
+        if (event.getSlot() == 49) {
+            player.playSound(player, Sound.BLOCK_ANVIL_USE, 10, 1);
+            player.getInventory().addItem(CreateItem(player));
+            player.closeInventory();
+        }
+        if (event.getSlot() == 22) {
+            SetDisplayNameMaps.running.put(player.getUniqueId(), true);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c!!! &7Please enter the DisplayName in the chat &c!!!"));
+            player.closeInventory();
+        }
+        if (event.getSlot() == 24) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            EnchantsGroupMenu.OpenMenu(player);
         }
     }
 

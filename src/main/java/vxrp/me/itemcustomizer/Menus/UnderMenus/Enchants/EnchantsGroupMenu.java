@@ -23,15 +23,15 @@ public class EnchantsGroupMenu implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        if (event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) {
-            if (event.getSlot() == 10) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                EnchatsMovementMenu.OpenMenu(player);
-            }
-            if (event.getSlot() == 11) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                EnchantsAttackMenu.OpenMenu(player);
-            }
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', menuname))) return;
+
+        if (event.getSlot() == 10) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            EnchatsMovementMenu.OpenMenu(player);
+        }
+        if (event.getSlot() == 11) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            EnchantsAttackMenu.OpenMenu(player);
         }
     }
     public static void OpenMenu(Player player) {
