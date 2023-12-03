@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
+import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsAttackMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsMovementMaps;
 import vxrp.me.itemcustomizer.Hashmaps.ItemFlags.ItemFlagsMap;
@@ -32,6 +33,8 @@ public class CreateCustom implements CommandExecutor {
             itemstack.setItemMeta(itemmeta);
             CreateCustomMaps.item.put(player.getUniqueId(), itemstack);
             CreateCustomMaps.itemmeta.put(player.getUniqueId(), itemmeta);
+            //Display-name
+            SetDisplayNameMaps.displayname.put(player.getUniqueId(), itemmeta.getDisplayName());
             //ItemFlags
             if (itemmeta.getItemFlags().contains(ItemFlag.HIDE_ATTRIBUTES)) {
                 ItemFlagsMap.hideattributes.put(player.getUniqueId(), true);

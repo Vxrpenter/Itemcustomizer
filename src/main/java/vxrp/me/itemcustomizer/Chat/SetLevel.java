@@ -10,7 +10,7 @@ import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.SetLevelMaps;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 import vxrp.me.itemcustomizer.Itemcustomizer;
-import vxrp.me.itemcustomizer.Menus.UnderMenus.Enchants.EnchantsPickMenu;
+import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsPickMenu;
 
 
 public class SetLevel implements Listener {
