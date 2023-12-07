@@ -38,7 +38,7 @@ public class EnchantsMiningMenu {
         if (itemMeta.hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)) {
             fortunemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
-        fortunemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bMining"));
+        fortunemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bFortune"));
         List<String> fortunelore = new ArrayList<>();
         fortunelore.add(ChatColor.translateAlternateColorCodes('&', "&7Provides a chance of gaining extra loot when destroying blocks"));
         fortunemeta.setLore(fortunelore);
@@ -50,7 +50,7 @@ public class EnchantsMiningMenu {
         if (itemMeta.hasEnchant(Enchantment.SILK_TOUCH)) {
             silktouchmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
-        silktouchmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bMining"));
+        silktouchmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bSilktouch"));
         List<String> silktouchlore = new ArrayList<>();
         silktouchlore.add(ChatColor.translateAlternateColorCodes('&', "&7Allows blocks to drop themselves instead of fragments"));
         silktouchlore.add(ChatColor.translateAlternateColorCodes('&', "&7(for example, stone instead of cobblestone)"));
