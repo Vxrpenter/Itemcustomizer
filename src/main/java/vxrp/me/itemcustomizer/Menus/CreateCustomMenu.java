@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -12,8 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.CreateItem;
 import vxrp.me.itemcustomizer.Hashmaps.ConfirmMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
-import vxrp.me.itemcustomizer.Hashmaps.ItemFlags.ItemFlagsMap;
-import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
+import vxrp.me.itemcustomizer.Hashmaps.Reset;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,18 +27,7 @@ public class CreateCustomMenu {
         UUID uuid = player.getUniqueId();
         Inventory gui = Bukkit.createInventory(null, 6*9, ChatColor.translateAlternateColorCodes('&', menuname));
         if (ConfirmMaps.confirmed.get(player.getUniqueId()) | CreateCustomMaps.finished.get(player.getUniqueId())) {
-            CreateCustomMaps.finished.put(player.getUniqueId(), false);
-            ConfirmMaps.confirmed.put(player.getUniqueId(), false);
-            CreateCustomMaps.item.put(player.getUniqueId(), null);
-            CreateCustomMaps.itemmeta.put(player.getUniqueId(), null);
-            ItemFlagsMap.hidedye.put(player.getUniqueId(), false);
-            ItemFlagsMap.hideenchants.put(player.getUniqueId(), false);
-            ItemFlagsMap.hideattributes.put(player.getUniqueId(), false);
-            ItemFlagsMap.hidedestroys.put(player.getUniqueId(), false);
-            ItemFlagsMap.hideplacedon.put(player.getUniqueId(), false);
-            ItemFlagsMap.hidepotioneffects.put(player.getUniqueId(), false);
-            ItemFlagsMap.hideunbreakable.put(player.getUniqueId(), false);
-            SetDisplayNameMaps.displayname.put(player.getUniqueId(), null);
+            Reset.reset(player);
             OpenMenu(player);
         }
 

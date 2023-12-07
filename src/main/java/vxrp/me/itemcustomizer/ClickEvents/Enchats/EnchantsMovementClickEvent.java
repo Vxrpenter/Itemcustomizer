@@ -1,6 +1,7 @@
 package vxrp.me.itemcustomizer.ClickEvents.Enchats;
 
 import org.bukkit.ChatColor;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,6 +25,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else if (!EnchantsPickMaps.depthstrider.get(player.getUniqueId())) {
                 EnchantsPickMaps.depthstrider.put(player.getUniqueId(), true);
+                EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.DEPTH_STRIDER);
                 EnchantsPickMenu.OpenMenu(player);
             }
         }
@@ -33,6 +35,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else if (!EnchantsPickMaps.frostwalker.get(player.getUniqueId())) {
                 EnchantsPickMaps.frostwalker.put(player.getUniqueId(), true);
+                EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.FROST_WALKER);
                 EnchantsPickMenu.OpenMenu(player);
             }
         }
@@ -42,6 +45,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else if (!EnchantsPickMaps.riptide.get(player.getUniqueId())) {
                 EnchantsPickMaps.riptide.put(player.getUniqueId(), true);
+                EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.RIPTIDE);
                 EnchantsPickMenu.OpenMenu(player);
             }
         }
@@ -51,6 +55,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else if (!EnchantsPickMaps.soulspeed.get(player.getUniqueId())) {
                 EnchantsPickMaps.soulspeed.put(player.getUniqueId(), true);
+                EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SOUL_SPEED);
                 EnchantsPickMenu.OpenMenu(player);
             }
         }
@@ -60,6 +65,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else if (!EnchantsPickMaps.swiftsneak.get(player.getUniqueId())) {
                 EnchantsPickMaps.swiftsneak.put(player.getUniqueId(), true);
+                EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SWIFT_SNEAK);
                 EnchantsPickMenu.OpenMenu(player);
             }
         }

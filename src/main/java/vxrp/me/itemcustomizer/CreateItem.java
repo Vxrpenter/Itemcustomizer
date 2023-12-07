@@ -3,7 +3,6 @@ package vxrp.me.itemcustomizer;
 import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
@@ -11,7 +10,6 @@ import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsAttackMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsMovementMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
-import vxrp.me.itemcustomizer.Hashmaps.ItemFlags.ItemFlagsMap;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 
 public class CreateItem {
@@ -20,42 +18,6 @@ public class CreateItem {
 
         ItemStack output = new ItemStack(CreateCustomMaps.item.get(player.getUniqueId()));
         ItemMeta outputmeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
-        if (ItemFlagsMap.hideattributes.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        } else if (!ItemFlagsMap.hideattributes.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        }
-
-        if (ItemFlagsMap.hideenchants.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        }else if (!ItemFlagsMap.hideenchants.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_ENCHANTS);
-        }
-        if (ItemFlagsMap.hidedye.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_DYE);
-        }else if (!ItemFlagsMap.hidedye.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_DYE);
-        }
-        if (ItemFlagsMap.hidedestroys.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_DESTROYS);
-        }else if (!ItemFlagsMap.hidedestroys.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_DESTROYS);
-        }
-        if (ItemFlagsMap.hideplacedon.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_PLACED_ON);
-        }else if (!ItemFlagsMap.hideplacedon.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_PLACED_ON);
-        }
-        if (ItemFlagsMap.hidepotioneffects.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-        }else if (!ItemFlagsMap.hidepotioneffects.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-        }
-        if (ItemFlagsMap.hideunbreakable.get(player.getUniqueId())) {
-            outputmeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        }else if (!ItemFlagsMap.hideunbreakable.get(player.getUniqueId())) {
-            outputmeta.removeItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        }
         //Enchants: Movement
         if (EnchantsMovementMaps.depthstrider.get(player.getUniqueId())) {
             outputmeta.addEnchant(Enchantment.DEPTH_STRIDER, EnchantsMovementMaps.depthstriderlevel.get(player.getUniqueId()), EnchantsMovementMaps.depthstriderlevel.get(player.getUniqueId()) > 3);
@@ -132,12 +94,12 @@ public class CreateItem {
             outputmeta.addEnchant(Enchantment.SWEEPING_EDGE, EnchantsAttackMaps.sweepingedgelevel.get(player.getUniqueId()), EnchantsAttackMaps.sweepingedgelevel.get(player.getUniqueId()) > 3);
         }
 
-
         EnchantsPickMaps.level.put(player.getUniqueId(), 0);
 
         if (SetDisplayNameMaps.displayname.get(player.getUniqueId()) != null) {
             outputmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', SetDisplayNameMaps.displayname.get(player.getUniqueId())));
         }
+
         output.setItemMeta(outputmeta);
         return output;
     }

@@ -2,6 +2,7 @@ package vxrp.me.itemcustomizer;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import vxrp.me.itemcustomizer.Chat.SetDisplayName;
+import vxrp.me.itemcustomizer.Chat.SetLevel;
 import vxrp.me.itemcustomizer.ClickEvents.ConfirmClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.CreateCustomClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.*;
@@ -33,5 +34,6 @@ public final class Itemcustomizer extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EnchatsAttackClickEvent(), this);
         getServer().getPluginManager().registerEvents(new EnchatsPickClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SetLevelClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new SetLevel(this), this);
     }
 }

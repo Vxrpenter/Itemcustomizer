@@ -5,12 +5,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import vxrp.me.itemcustomizer.Hashmaps.ItemFlags.ItemFlagsMap;
+import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +18,12 @@ public class ItemFlagMenu {
     public static String menuname = "&bItemFlags";
 
     public static void OpenMenu(Player player) {
-        ItemFlagsMap.hideattributes.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hideenchants.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hidedye.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hidedestroys.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hideplacedon.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hidepotioneffects.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hideunbreakable.putIfAbsent(player.getUniqueId(), false);
-
         Inventory gui = Bukkit.createInventory(null, 3*9, ChatColor.translateAlternateColorCodes('&', menuname));
+        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
 
         ItemStack hide_attributes = new ItemStack(Material.ENDER_EYE);
         ItemMeta hide_attributesmeta = hide_attributes.getItemMeta();
-        if (ItemFlagsMap.hideattributes.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_ATTRIBUTES)) {
             hide_attributesmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         hide_attributesmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
@@ -43,10 +35,10 @@ public class ItemFlagMenu {
 
         ItemStack hide_enchants = new ItemStack(Material.BOOK);
         ItemMeta hide_enchantsmeta = hide_enchants.getItemMeta();
-        if (ItemFlagsMap.hideenchants.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_ENCHANTS)) {
             hide_enchantsmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
-        hide_enchantsmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
+        hide_enchantsmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ENCHANTS);
         hide_enchantsmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bHide Enchants"));
         List<String> hide_enchantslore = new ArrayList<>();
         hide_enchantslore.add(ChatColor.translateAlternateColorCodes('&', "&7Setting to show/hide enchants"));
@@ -55,7 +47,7 @@ public class ItemFlagMenu {
 
         ItemStack hidedye = new ItemStack(Material.WHITE_DYE);
         ItemMeta hidedyemeta = hidedye.getItemMeta();
-        if (ItemFlagsMap.hidedye.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_DYE)) {
             hidedyemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         hidedyemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_DYE);
@@ -68,7 +60,7 @@ public class ItemFlagMenu {
 
         ItemStack hidedestroys = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta hidedestroysmeta = hidedestroys.getItemMeta();
-        if (ItemFlagsMap.hidedestroys.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_DESTROYS)) {
             hidedestroysmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         hidedestroysmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
@@ -81,7 +73,7 @@ public class ItemFlagMenu {
 
         ItemStack hideplacedon = new ItemStack(Material.SPYGLASS);
         ItemMeta hideplacedonmeta = hideplacedon.getItemMeta();
-        if (ItemFlagsMap.hideplacedon.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_PLACED_ON)) {
             hideplacedonmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         hideplacedonmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
@@ -94,7 +86,7 @@ public class ItemFlagMenu {
 
         ItemStack hidepotioneffects = new ItemStack(Material.HONEY_BOTTLE);
         ItemMeta hidepotioneffectsmeta = hidepotioneffects.getItemMeta();
-        if (ItemFlagsMap.hidepotioneffects.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_POTION_EFFECTS)) {
             hidepotioneffectsmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         hidepotioneffectsmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_POTION_EFFECTS);
@@ -108,10 +100,10 @@ public class ItemFlagMenu {
 
         ItemStack hideunbreakable = new ItemStack(Material.NETHERITE_INGOT);
         ItemMeta hideunbreakablemeta = hideunbreakable.getItemMeta();
-        if (ItemFlagsMap.hideunbreakable.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_UNBREAKABLE)) {
             hideunbreakablemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
-        hideunbreakablemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
+        hideunbreakablemeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS);
         hideunbreakablemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bHide Unbreakable"));
         List<String> hideunbreakablelore = new ArrayList<>();
         hideunbreakablelore.add(ChatColor.translateAlternateColorCodes('&', "&7Setting to show/hide the unbreakable State"));
@@ -120,7 +112,7 @@ public class ItemFlagMenu {
 
         ItemStack addall = new ItemStack(Material.ENDER_CHEST);
         ItemMeta addallmeta = addall.getItemMeta();
-        if (ItemFlagsMap.hideunbreakable.get(player.getUniqueId())) {
+        if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_UNBREAKABLE)) {
             hideunbreakablemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         addallmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);

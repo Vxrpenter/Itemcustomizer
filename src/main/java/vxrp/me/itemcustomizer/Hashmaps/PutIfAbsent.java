@@ -6,19 +6,10 @@ import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsAttackMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsMovementMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.SetLevelMaps;
-import vxrp.me.itemcustomizer.Hashmaps.ItemFlags.ItemFlagsMap;
 
 public class PutIfAbsent {
 
     public static void PutIfAbsent(Player player) {
-        ItemFlagsMap.hideattributes.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hideenchants.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hidedye.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hidedestroys.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hideplacedon.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hidepotioneffects.putIfAbsent(player.getUniqueId(), false);
-        ItemFlagsMap.hideunbreakable.putIfAbsent(player.getUniqueId(), false);
-
         EnchantsAttackMaps.baneofarthropods.putIfAbsent(player.getUniqueId(), false);
         EnchantsAttackMaps.channeling.putIfAbsent(player.getUniqueId(), false);
         EnchantsAttackMaps.fireaspect.putIfAbsent(player.getUniqueId(), false);
