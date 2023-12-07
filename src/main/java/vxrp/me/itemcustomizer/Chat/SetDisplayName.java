@@ -1,11 +1,14 @@
 package vxrp.me.itemcustomizer.Chat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitScheduler;
+import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 import vxrp.me.itemcustomizer.Itemcustomizer;
@@ -19,12 +22,14 @@ public class SetDisplayName implements Listener {
     @EventHandler
     public void OnMessage(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
+        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
         PutIfAbsent.PutIfAbsent(player);
         String message = event.getMessage();
 
         if (SetDisplayNameMaps.running.get(player.getUniqueId())) {
             SetDisplayNameMaps.running.put(player.getUniqueId(), false);
-            SetDisplayNameMaps.displayname.put(player.getUniqueId(), message);
+            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', message));
+            CreateCustomMaps.itemmeta.put(player.getUniqueId(), itemMeta);
             event.setCancelled(true);
 
             BukkitScheduler scheduler = Bukkit.getScheduler();

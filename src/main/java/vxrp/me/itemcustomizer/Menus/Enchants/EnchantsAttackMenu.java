@@ -5,14 +5,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsAttackMaps;
+import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +17,13 @@ public class EnchantsAttackMenu {
     public static String menuname = "&bEnchants &7Attack";
 
     public static void OpenMenu(Player player) {
-
         Inventory gui = Bukkit.createInventory(null, 5*9, ChatColor.translateAlternateColorCodes('&', menuname));
+        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
 
         ItemStack baneofarthropods = new ItemStack(Material.SPIDER_EYE);
         ItemMeta baneofarthropodsmeta = baneofarthropods.getItemMeta();
         baneofarthropodsmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.baneofarthropods.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.DAMAGE_ARTHROPODS)) {
             baneofarthropodsmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         baneofarthropodsmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bBane of Arthropods"));
@@ -38,7 +35,7 @@ public class EnchantsAttackMenu {
         ItemStack channeling = new ItemStack(Material.LANTERN);
         ItemMeta channelingmeta = channeling.getItemMeta();
         channelingmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.channeling.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.CHANNELING)) {
             channelingmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         channelingmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bChanneling"));
@@ -51,7 +48,7 @@ public class EnchantsAttackMenu {
         ItemStack fireaspect = new ItemStack(Material.FLINT_AND_STEEL);
         ItemMeta fireaspectmeta = fireaspect.getItemMeta();
         fireaspectmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.fireaspect.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.FIRE_ASPECT)) {
             fireaspectmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         fireaspectmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bFire Aspect"));
@@ -64,7 +61,7 @@ public class EnchantsAttackMenu {
         ItemStack flame = new ItemStack(Material.CAMPFIRE);
         ItemMeta flamemeta = flame.getItemMeta();
         flamemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.flame.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.ARROW_FIRE)) {
             flamemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         flamemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bFlame"));
@@ -77,7 +74,7 @@ public class EnchantsAttackMenu {
         ItemStack impaling = new ItemStack(Material.TRIDENT);
         ItemMeta impalingmeta = impaling.getItemMeta();
         impalingmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.impaling.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.IMPALING)) {
             impalingmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         impalingmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bImpaling"));
@@ -89,7 +86,7 @@ public class EnchantsAttackMenu {
         ItemStack infinity = new ItemStack(Material.SPECTRAL_ARROW);
         ItemMeta infinitymeta = infinity.getItemMeta();
         infinitymeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.infinity.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.ARROW_INFINITE)) {
             infinitymeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         infinitymeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bInfinity"));
@@ -101,7 +98,7 @@ public class EnchantsAttackMenu {
         ItemStack knockback = new ItemStack(Material.STICK);
         ItemMeta knockbackmeta = knockback.getItemMeta();
         knockbackmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.knockback.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.KNOCKBACK)) {
             knockbackmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         knockbackmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bKnockback"));
@@ -114,7 +111,7 @@ public class EnchantsAttackMenu {
         ItemStack loyalty = new ItemStack(Material.LEAD);
         ItemMeta loyaltymeta = loyalty.getItemMeta();
         loyaltymeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.loyalty.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.LOYALTY)) {
             loyaltymeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         loyaltymeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bLoyalty"));
@@ -127,7 +124,7 @@ public class EnchantsAttackMenu {
         ItemStack multishot = new ItemStack(Material.BEETROOT);
         ItemMeta multishotmeta = multishot.getItemMeta();
         multishotmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.multishot.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.MULTISHOT)) {
             multishotmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         multishotmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bMultishot"));
@@ -139,7 +136,7 @@ public class EnchantsAttackMenu {
         ItemStack piercing = new ItemStack(Material.CROSSBOW);
         ItemMeta piercingmeta = piercing.getItemMeta();
         piercingmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.piercing.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.PIERCING)) {
             piercingmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         piercingmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bPiercing"));
@@ -151,7 +148,7 @@ public class EnchantsAttackMenu {
         ItemStack power = new ItemStack(Material.ARROW);
         ItemMeta powermeta = power.getItemMeta();
         powermeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.power.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.ARROW_DAMAGE)) {
             powermeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         powermeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bPower"));
@@ -164,7 +161,7 @@ public class EnchantsAttackMenu {
         ItemStack punch = new ItemStack(Material.SLIME_BLOCK);
         ItemMeta punchmeta = punch.getItemMeta();
         punchmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.punch.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.ARROW_KNOCKBACK)) {
             punchmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         punchmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bPunch"));
@@ -177,7 +174,7 @@ public class EnchantsAttackMenu {
         ItemStack quickcharge = new ItemStack(Material.STRING);
         ItemMeta quickchargemeta = quickcharge.getItemMeta();
         quickchargemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.quickcharge.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.QUICK_CHARGE)) {
             quickchargemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         quickchargemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bQuick Charge"));
@@ -189,7 +186,7 @@ public class EnchantsAttackMenu {
         ItemStack sharpness = new ItemStack(Material.IRON_SWORD);
         ItemMeta sharpnessmeta = sharpness.getItemMeta();
         sharpnessmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.sharpness.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.DAMAGE_ALL)) {
             sharpnessmeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         sharpnessmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bSharpness"));
@@ -201,7 +198,7 @@ public class EnchantsAttackMenu {
         ItemStack smite = new ItemStack(Material.ROTTEN_FLESH);
         ItemMeta smitemeta = smite.getItemMeta();
         smitemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.smite.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.DAMAGE_UNDEAD)) {
             smitemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         smitemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bSmite"));
@@ -213,7 +210,7 @@ public class EnchantsAttackMenu {
         ItemStack sweepingedge = new ItemStack(Material.TNT);
         ItemMeta sweepingedgemeta = sweepingedge.getItemMeta();
         sweepingedgemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        if (EnchantsAttackMaps.sweepingedge.get(player.getUniqueId())) {
+        if (itemMeta.hasEnchant(Enchantment.SWEEPING_EDGE)) {
             sweepingedgemeta.addEnchant(Enchantment.LUCK, 1, false);
         }
         sweepingedgemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bSweeping Edge"));

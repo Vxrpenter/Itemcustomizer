@@ -1,12 +1,14 @@
 package vxrp.me.itemcustomizer.ClickEvents.Enchats;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsMovementMaps;
+import org.bukkit.inventory.meta.ItemMeta;
+import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsGroupMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsPickMenu;
@@ -16,58 +18,60 @@ public class EnchantsMovementClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EnchatsMovementMenu.menuname))) return;
         event.setCancelled(true);
 
         if (event.getSlot() == 11) {
-            if (EnchantsMovementMaps.depthstrider.get(player.getUniqueId())) {
-                EnchantsMovementMaps.depthstrider.put(player.getUniqueId(), false);
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            if (itemMeta.hasEnchant(Enchantment.DEPTH_STRIDER)) {
+                itemMeta.removeEnchant(Enchantment.DEPTH_STRIDER);
                 EnchantsGroupMenu.OpenMenu(player);
-            } else if (!EnchantsPickMaps.depthstrider.get(player.getUniqueId())) {
-                EnchantsPickMaps.depthstrider.put(player.getUniqueId(), true);
+            } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.DEPTH_STRIDER);
-                EnchantsPickMenu.OpenMenu(player);
+                EnchantsPickMenu.OpenMenu(player);;
             }
         }
         if (event.getSlot() == 12) {
-            if (EnchantsMovementMaps.frostwalker.get(player.getUniqueId())) {
-                EnchantsMovementMaps.frostwalker.put(player.getUniqueId(), false);
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            if (itemMeta.hasEnchant(Enchantment.FROST_WALKER)) {
+                itemMeta.removeEnchant(Enchantment.FROST_WALKER);
                 EnchantsGroupMenu.OpenMenu(player);
-            } else if (!EnchantsPickMaps.frostwalker.get(player.getUniqueId())) {
-                EnchantsPickMaps.frostwalker.put(player.getUniqueId(), true);
+            } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.FROST_WALKER);
-                EnchantsPickMenu.OpenMenu(player);
+                EnchantsPickMenu.OpenMenu(player);;
             }
         }
         if (event.getSlot() == 13) {
-            if (EnchantsMovementMaps.riptide.get(player.getUniqueId())) {
-                EnchantsMovementMaps.riptide.put(player.getUniqueId(), false);
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            if (itemMeta.hasEnchant(Enchantment.RIPTIDE)) {
+                itemMeta.removeEnchant(Enchantment.RIPTIDE);
                 EnchantsGroupMenu.OpenMenu(player);
-            } else if (!EnchantsPickMaps.riptide.get(player.getUniqueId())) {
-                EnchantsPickMaps.riptide.put(player.getUniqueId(), true);
+            } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.RIPTIDE);
-                EnchantsPickMenu.OpenMenu(player);
+                EnchantsPickMenu.OpenMenu(player);;
             }
         }
         if (event.getSlot() == 14) {
-            if (EnchantsMovementMaps.soulspeed.get(player.getUniqueId())) {
-                EnchantsMovementMaps.soulspeed.put(player.getUniqueId(), false);
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            if (itemMeta.hasEnchant(Enchantment.SOUL_SPEED)) {
+                itemMeta.removeEnchant(Enchantment.SOUL_SPEED);
                 EnchantsGroupMenu.OpenMenu(player);
-            } else if (!EnchantsPickMaps.soulspeed.get(player.getUniqueId())) {
-                EnchantsPickMaps.soulspeed.put(player.getUniqueId(), true);
+            } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SOUL_SPEED);
-                EnchantsPickMenu.OpenMenu(player);
+                EnchantsPickMenu.OpenMenu(player);;
             }
         }
         if (event.getSlot() == 15) {
-            if (EnchantsMovementMaps.swiftsneak.get(player.getUniqueId())) {
-                EnchantsMovementMaps.swiftsneak.put(player.getUniqueId(), false);
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            if (itemMeta.hasEnchant(Enchantment.SWIFT_SNEAK)) {
+                itemMeta.removeEnchant(Enchantment.SWIFT_SNEAK);
                 EnchantsGroupMenu.OpenMenu(player);
-            } else if (!EnchantsPickMaps.swiftsneak.get(player.getUniqueId())) {
-                EnchantsPickMaps.swiftsneak.put(player.getUniqueId(), true);
+            } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SWIFT_SNEAK);
-                EnchantsPickMenu.OpenMenu(player);
+                EnchantsPickMenu.OpenMenu(player);;
             }
         }
+        CreateCustomMaps.itemmeta.put(player.getUniqueId(), itemMeta);
     }
 }
