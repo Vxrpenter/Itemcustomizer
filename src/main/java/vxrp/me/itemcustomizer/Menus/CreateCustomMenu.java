@@ -28,6 +28,8 @@ public class CreateCustomMenu {
         Inventory gui = Bukkit.createInventory(null, 6*9, ChatColor.translateAlternateColorCodes('&', menuname));
         if (ConfirmMaps.confirmed.get(player.getUniqueId()) | CreateCustomMaps.finished.get(player.getUniqueId())) {
             Reset.reset(player);
+            CreateCustomMaps.item.put(player.getUniqueId(), player.getItemInHand());
+            CreateCustomMaps.itemmeta.put(player.getUniqueId(), player.getItemInHand().getItemMeta());
             OpenMenu(player);
         }
 
@@ -55,7 +57,7 @@ public class CreateCustomMenu {
         itemflagsmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bItemFlags"));
         List<String> itemflaglore = new ArrayList<>();
         itemflaglore.add(ChatColor.translateAlternateColorCodes('&', "&7With ItemFlags you can hide certain"));
-        itemflaglore.add(ChatColor.translateAlternateColorCodes('&', "&7&bAttributes on an Item"));
+        itemflaglore.add(ChatColor.translateAlternateColorCodes('&', "&7Attributes on an Item"));
         itemflagsmeta.setLore(itemflaglore);
         itemflags.setItemMeta(itemflagsmeta);
 

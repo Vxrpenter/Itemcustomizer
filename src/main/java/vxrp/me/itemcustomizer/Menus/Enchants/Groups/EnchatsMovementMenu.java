@@ -1,4 +1,4 @@
-package vxrp.me.itemcustomizer.Menus.Enchants;
+package vxrp.me.itemcustomizer.Menus.Enchants.Groups;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

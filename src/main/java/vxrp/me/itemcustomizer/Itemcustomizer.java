@@ -6,6 +6,7 @@ import vxrp.me.itemcustomizer.Chat.SetLevel;
 import vxrp.me.itemcustomizer.ClickEvents.ConfirmClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.CreateCustomClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.*;
+import vxrp.me.itemcustomizer.ClickEvents.Enchats.Groups.*;
 import vxrp.me.itemcustomizer.ClickEvents.ItemFlags.ItemFlagClickEvent;
 import vxrp.me.itemcustomizer.Commands.CreateCustom;
 import vxrp.me.itemcustomizer.Menus.*;
@@ -35,5 +36,10 @@ public final class Itemcustomizer extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EnchatsPickClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SetLevelClickEvent(), this);
         getServer().getPluginManager().registerEvents(new SetLevel(this), this);
+        getServer().getPluginManager().registerEvents(new EnchantsProtectionClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EnchantsCurseClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EnchantsMiningClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EnchantsFarmingClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EnchantsGeneralClickEvent(), this);
     }
 }

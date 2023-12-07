@@ -1,4 +1,4 @@
-package vxrp.me.itemcustomizer.ClickEvents.Enchats;
+package vxrp.me.itemcustomizer.ClickEvents.Enchats.Groups;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -10,7 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
-import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsAttackMenu;
+import vxrp.me.itemcustomizer.Menus.Enchants.Groups.EnchantsAttackMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsGroupMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsPickMenu;
 
