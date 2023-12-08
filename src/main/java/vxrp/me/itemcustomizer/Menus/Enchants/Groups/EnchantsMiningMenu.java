@@ -9,7 +9,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
+import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class EnchantsMiningMenu {
     public static String menuname = "&bEnchants &7Mining";
     public static void OpenMenu(Player player) {
         Inventory gui = Bukkit.createInventory(null, 3*9, ChatColor.translateAlternateColorCodes('&', menuname));
-        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
+        ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
 
         ItemStack efficiency = new ItemStack(Material.TNT);
         ItemMeta efficiencymeta = efficiency.getItemMeta();

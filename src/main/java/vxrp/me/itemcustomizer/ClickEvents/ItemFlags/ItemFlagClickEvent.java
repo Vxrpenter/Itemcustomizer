@@ -9,8 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.meta.ItemMeta;
-import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
-import vxrp.me.itemcustomizer.Menus.CreateCustomMenu;
+import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
+import vxrp.me.itemcustomizer.Menus.EditMenu;
 import vxrp.me.itemcustomizer.Menus.ItemFlags.ItemFlagMenu;
 
 public class ItemFlagClickEvent implements Listener {
@@ -18,7 +18,7 @@ public class ItemFlagClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
+        ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', ItemFlagMenu.menuname))) return;
         event.setCancelled(true);
 
@@ -90,11 +90,11 @@ public class ItemFlagClickEvent implements Listener {
         }
         try {
             if (event.getCurrentItem().getType() != Material.AIR) {
-                CreateCustomMenu.OpenMenu(player);;
+                EditMenu.OpenMenu(player);;
             }
         }catch (NullPointerException e) {
             //do nothing
         }
-        CreateCustomMaps.itemmeta.put(player.getUniqueId(), itemMeta);
+        EditMaps.itemmeta.put(player.getUniqueId(), itemMeta);
     }
 }

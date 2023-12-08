@@ -17,24 +17,20 @@ public class SetLevelClickEvent implements Listener {
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', SetLevelMenus.menuname))) return;
         event.setCancelled(true);
 
+        player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
         if (event.getSlot() == 11) {
-            player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
             EnchantsPickMaps.level.put(player.getUniqueId(), 1);
         }
         if (event.getSlot() == 12) {
-            player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
             EnchantsPickMaps.level.put(player.getUniqueId(), 2);
         }
         if (event.getSlot() == 13) {
-            player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
             EnchantsPickMaps.level.put(player.getUniqueId(), 3);
         }
         if (event.getSlot() == 14) {
-            player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
             EnchantsPickMaps.level.put(player.getUniqueId(), 4);
         }
         if (event.getSlot() == 15) {
-            player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
             EnchantsPickMaps.level.put(player.getUniqueId(), 5);
         }
         EnchantsPickMenu.OpenMenu(player);

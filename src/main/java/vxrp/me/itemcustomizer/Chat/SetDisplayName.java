@@ -8,11 +8,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitScheduler;
-import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
+import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 import vxrp.me.itemcustomizer.Itemcustomizer;
-import vxrp.me.itemcustomizer.Menus.CreateCustomMenu;
+import vxrp.me.itemcustomizer.Menus.EditMenu;
 
 public class SetDisplayName implements Listener {
     private final Itemcustomizer plugin;
@@ -22,19 +22,19 @@ public class SetDisplayName implements Listener {
     @EventHandler
     public void OnMessage(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
+        ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         PutIfAbsent.PutIfAbsent(player);
         String message = event.getMessage();
 
         if (SetDisplayNameMaps.running.get(player.getUniqueId())) {
             SetDisplayNameMaps.running.put(player.getUniqueId(), false);
             itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', message));
-            CreateCustomMaps.itemmeta.put(player.getUniqueId(), itemMeta);
+            EditMaps.itemmeta.put(player.getUniqueId(), itemMeta);
             event.setCancelled(true);
 
             BukkitScheduler scheduler = Bukkit.getScheduler();
             scheduler.runTaskLater(plugin, () -> {
-                        CreateCustomMenu.OpenMenu(player);
+                        EditMenu.OpenMenu(player);
                     }, 1);
         }
     }

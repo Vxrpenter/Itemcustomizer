@@ -1,0 +1,8 @@
+#Messages
+  missing_permission: "&cYou are not permitted to use this feature"
+#Permission
+  customize_edit:
+    set_itemflags: true
+    set_displayname: true
+    set_enchants: true
+    set_unbreakable: true

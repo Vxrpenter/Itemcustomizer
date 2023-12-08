@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import vxrp.me.itemcustomizer.Hashmaps.ConfirmMaps;
 import vxrp.me.itemcustomizer.Menus.ConfirmMenu;
-import vxrp.me.itemcustomizer.Menus.CreateCustomMenu;
+import vxrp.me.itemcustomizer.Menus.EditMenu;
 
 public class ConfirmClickEvent implements Listener {
     @EventHandler
@@ -20,7 +20,7 @@ public class ConfirmClickEvent implements Listener {
         if (event.getSlot() == 4) {
             player.playSound(player, Sound.BLOCK_GRINDSTONE_USE, 10, 1);
             ConfirmMaps.confirmed.put(player.getUniqueId(), true);
-            CreateCustomMenu.OpenMenu(player);
+            EditMenu.OpenMenu(player);
         }
     }
 }

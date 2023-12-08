@@ -5,6 +5,7 @@ api-version: '1.19'
 commands:
   itemcustomizer:
     aliases: "customizer"
-  createcustom:
+  edit:
+    aliases: "edititem"
 
 

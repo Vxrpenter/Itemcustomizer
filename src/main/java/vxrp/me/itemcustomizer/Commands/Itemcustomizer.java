@@ -9,13 +9,14 @@ import org.jetbrains.annotations.NotNull;
 import vxrp.me.itemcustomizer.Menus.ItemcustomizerMenu;
 
 
+
 public class Itemcustomizer implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-            if (!player.hasPermission("customize.use")) {
+            if (player.hasPermission("customize.use")) {
                 if (args.length == 0) {
                     ItemcustomizerMenu.OpenMenu(player);
                 } else if (args.length == 1) {
@@ -24,8 +25,7 @@ public class Itemcustomizer implements CommandExecutor {
                         player.sendMessage(" ");
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&nCommand Explanations"));
                         player.sendMessage(" ");
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/CreateCustom | &7With this Command you can create a"));
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7   completely CustomItem"));
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/Edit | &7With this Command you can edit an item"));
                         player.sendMessage(" ");
                         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7===================================================="));
                     }
@@ -35,7 +35,7 @@ public class Itemcustomizer implements CommandExecutor {
                     }
 
                     else if (!args[0].equals("help".toLowerCase())){
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Usage: &b/itemcustomizer &7| &bcustomizer &7{&bhelp&7|&bmenu&7}"));
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Usage: &b/itemcustomizer &7| &b/customizer &7{&bhelp&7|&bmenu&7}"));
                     }
                 }
             } else {
