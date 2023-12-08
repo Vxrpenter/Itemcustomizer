@@ -6,7 +6,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.CreateItem;
+import vxrp.me.itemcustomizer.Hashmaps.Create.CreateCustomMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Menus.ConfirmMenu;
 import vxrp.me.itemcustomizer.Menus.CreateCustomMenu;
@@ -17,6 +20,7 @@ public class CreateCustomClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', CreateCustomMenu.menuname))) return;
         event.setCancelled(true);
 
@@ -41,6 +45,11 @@ public class CreateCustomClickEvent implements Listener {
         if (event.getSlot() == 24) {
             player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
             EnchantsGroupMenu.OpenMenu(player);
+        }
+        if (event.getSlot() == 30) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            itemMeta.setUnbreakable(!itemMeta.isUnbreakable());
+            CreateCustomMenu.OpenMenu(player);
         }
     }
 }

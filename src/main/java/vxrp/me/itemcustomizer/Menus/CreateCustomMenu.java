@@ -3,6 +3,7 @@ package vxrp.me.itemcustomizer.Menus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
@@ -23,9 +24,10 @@ public class CreateCustomMenu {
     public static void OpenMenu(Player player) {
         ConfirmMaps.confirmed.putIfAbsent(player.getUniqueId(), false);
         CreateCustomMaps.finished.putIfAbsent(player.getUniqueId(), false);
-
         UUID uuid = player.getUniqueId();
         Inventory gui = Bukkit.createInventory(null, 6*9, ChatColor.translateAlternateColorCodes('&', menuname));
+        ItemMeta itemMeta = CreateCustomMaps.itemmeta.get(player.getUniqueId());
+
         if (ConfirmMaps.confirmed.get(player.getUniqueId()) | CreateCustomMaps.finished.get(player.getUniqueId())) {
             Reset.reset(player);
             CreateCustomMaps.item.put(player.getUniqueId(), player.getItemInHand());
@@ -91,6 +93,20 @@ public class CreateCustomMenu {
         enchantsmeta.setLore(enchantslore);
         enchants.setItemMeta(enchantsmeta);
 
+        ItemStack unbreakable = new ItemStack(Material.NETHERITE_INGOT);
+        ItemMeta unbreakablemeta = displayname.getItemMeta();
+        if (itemMeta.isUnbreakable()) {
+            unbreakablemeta.addEnchant(Enchantment.LUCK, 1, false);
+        }
+        unbreakablemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
+        unbreakablemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bUnbreakable"));
+        List<String> unbreakablelore = new ArrayList<>();
+        unbreakablelore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the unbreakable tag. An unbreakable item will"));
+        unbreakablelore.add(ChatColor.translateAlternateColorCodes('&', "&7not lose durability."));
+        unbreakablemeta.setLore(unbreakablelore);
+        unbreakable.setItemMeta(unbreakablemeta);
+
+        gui.setItem(30, unbreakable);
         gui.setItem(24, enchants);
         gui.setItem(22, displayname);
         gui.setItem(49, finish);
