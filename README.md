@@ -9,3 +9,6 @@ using the Itemcustomizer gui.
                  will be able to customize the item to your liking)
 - /itemcustomizer|customizer (currently not working)
 
+###Permissions
+- customize.use | to use the /itemcustomizer command
+- customize.createcustom | to use the /createcustom command
