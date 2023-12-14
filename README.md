@@ -1,6 +1,6 @@
 # Itemcustomizer
 > [!WARNING]
-> This plugin is a pre-release, some features may not work yet or there could be bugs!!!
+> This plugin is a pre-release, some features may not work yet or bugs may occur!!!
 
 With this plugin you are able to modify/edit items ingame, you can do this
 using the Itemcustomizer gui.
