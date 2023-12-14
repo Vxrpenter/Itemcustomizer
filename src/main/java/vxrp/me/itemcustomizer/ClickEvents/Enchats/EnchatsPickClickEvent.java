@@ -11,7 +11,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.SetLevelMaps;
-import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Menus.EditMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsPickMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.SetLevelMenus;

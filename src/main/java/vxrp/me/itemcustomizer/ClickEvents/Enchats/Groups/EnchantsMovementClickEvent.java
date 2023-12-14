@@ -29,7 +29,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.DEPTH_STRIDER);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 12) {
@@ -39,7 +39,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.FROST_WALKER);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 13) {
@@ -49,7 +49,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.RIPTIDE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 14) {
@@ -59,7 +59,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SOUL_SPEED);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 15) {
@@ -69,7 +69,7 @@ public class EnchantsMovementClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SWIFT_SNEAK);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         EditMaps.itemmeta.put(player.getUniqueId(), itemMeta);

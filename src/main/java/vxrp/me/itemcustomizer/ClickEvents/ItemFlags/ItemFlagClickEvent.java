@@ -78,7 +78,7 @@ public class ItemFlagClickEvent implements Listener {
                 itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
             }
         }
-        if (event.getSlot() == 26) {
+        if (event.getSlot() == 25) {
             player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
             if (itemMeta.getItemFlags().contains(ItemFlag.HIDE_ATTRIBUTES) & itemMeta.getItemFlags().contains(ItemFlag.HIDE_ENCHANTS) & itemMeta.getItemFlags().contains(ItemFlag.HIDE_DYE) &
                     itemMeta.getItemFlags().contains(ItemFlag.HIDE_DESTROYS) & itemMeta.getItemFlags().contains(ItemFlag.HIDE_PLACED_ON) & itemMeta.getItemFlags().contains(ItemFlag.HIDE_POTION_EFFECTS) &
@@ -88,9 +88,13 @@ public class ItemFlagClickEvent implements Listener {
                 itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_DYE, ItemFlag.HIDE_DESTROYS, ItemFlag.HIDE_PLACED_ON, ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_UNBREAKABLE);
             }
         }
+        if (event.getSlot() == 26) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            EditMenu.OpenMenu(player);
+        }
         try {
             if (event.getCurrentItem().getType() != Material.AIR) {
-                EditMenu.OpenMenu(player);;
+                EditMenu.OpenMenu(player);
             }
         }catch (NullPointerException e) {
             //do nothing

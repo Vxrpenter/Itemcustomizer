@@ -17,7 +17,7 @@ public class EnchantsAttackMenu {
     public static String menuname = "&bEnchants &7Attack";
 
     public static void OpenMenu(Player player) {
-        Inventory gui = Bukkit.createInventory(null, 5*9, ChatColor.translateAlternateColorCodes('&', menuname));
+        Inventory gui = Bukkit.createInventory(null, 5 * 9, ChatColor.translateAlternateColorCodes('&', menuname));
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
 
         ItemStack baneofarthropods = new ItemStack(Material.SPIDER_EYE);

@@ -6,3 +6,4 @@
     set_displayname: true
     set_enchants: true
     set_unbreakable: true
+    set_attributemodifier: true

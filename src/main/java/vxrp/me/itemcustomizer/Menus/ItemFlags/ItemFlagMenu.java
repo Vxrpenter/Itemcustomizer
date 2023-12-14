@@ -122,7 +122,17 @@ public class ItemFlagMenu {
         addallmeta.setLore(addalllore);
         addall.setItemMeta(addallmeta);
 
-        gui.setItem(26, addall);
+        ItemStack back = new ItemStack(Material.ARROW);
+        ItemMeta backMeta = back.getItemMeta();
+        backMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        backMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bBack"));
+        List<String> backLore = new ArrayList<>();
+        backLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sends you back to the edit menu"));
+        backMeta.setLore(backLore);
+        back.setItemMeta(backMeta);
+
+        gui.setItem(26, back);
+        gui.setItem(25, addall);
         gui.setItem(16, hideunbreakable);
         gui.setItem(15, hidepotioneffects);
         gui.setItem(14, hideplacedon);

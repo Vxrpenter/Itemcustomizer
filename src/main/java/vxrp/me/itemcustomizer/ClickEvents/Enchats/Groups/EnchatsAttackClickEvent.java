@@ -30,7 +30,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.DAMAGE_ARTHROPODS);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 11) {
@@ -40,7 +40,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.CHANNELING);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 12) {
@@ -50,7 +50,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.FIRE_ASPECT);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 13) {
@@ -60,7 +60,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.ARROW_FIRE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 14) {
@@ -70,7 +70,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.IMPALING);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 15) {
@@ -80,7 +80,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.ARROW_INFINITE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 16) {
@@ -90,7 +90,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.KNOCKBACK);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 19) {
@@ -100,7 +100,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.LOYALTY);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 20) {
@@ -110,7 +110,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.MULTISHOT);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 21) {
@@ -120,7 +120,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.PIERCING);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 22) {
@@ -130,7 +130,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.ARROW_DAMAGE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 23) {
@@ -140,7 +140,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.ARROW_KNOCKBACK);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 24) {
@@ -150,7 +150,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.QUICK_CHARGE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 25) {
@@ -160,7 +160,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.DAMAGE_ALL);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 28) {
@@ -170,7 +170,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.DAMAGE_UNDEAD);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 29) {
@@ -180,7 +180,7 @@ public class EnchatsAttackClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.SWEEPING_EDGE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
     }

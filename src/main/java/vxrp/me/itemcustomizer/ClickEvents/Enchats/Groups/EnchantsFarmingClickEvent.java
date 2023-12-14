@@ -29,7 +29,7 @@ public class EnchantsFarmingClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.LOOT_BONUS_MOBS);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 11) {
@@ -39,7 +39,7 @@ public class EnchantsFarmingClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.LURE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 12) {
@@ -49,7 +49,7 @@ public class EnchantsFarmingClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.LURE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
     }

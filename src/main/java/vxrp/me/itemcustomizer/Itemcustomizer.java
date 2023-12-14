@@ -1,17 +1,23 @@
 package vxrp.me.itemcustomizer;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import vxrp.me.itemcustomizer.Chat.AttributeModifier.AddNumber;
 import vxrp.me.itemcustomizer.Chat.SetDisplayName;
 import vxrp.me.itemcustomizer.Chat.SetLevel;
+import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.AttributeModifierClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.AttributePickClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.EquipmentSlotClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.ConfirmClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.EditClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.*;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.Groups.*;
 import vxrp.me.itemcustomizer.ClickEvents.ItemFlags.ItemFlagClickEvent;
 import vxrp.me.itemcustomizer.Commands.Edit;
+import vxrp.me.itemcustomizer.Commands.ItemCustomizer;
 import vxrp.me.itemcustomizer.Menus.*;
 
 public final class Itemcustomizer extends JavaPlugin {
+    public static String pluginNameVersion = "Itemcustomizer-0.2.4";
 
     @Override
     public void onEnable() {
@@ -19,9 +25,8 @@ public final class Itemcustomizer extends JavaPlugin {
         Commands();
         Listeners();
     }
-
     public void Commands() {
-        getCommand("itemcustomizer").setExecutor(new vxrp.me.itemcustomizer.Commands.Itemcustomizer());
+        getCommand("itemcustomizer").setExecutor(new ItemCustomizer());
         getCommand("edit").setExecutor(new Edit());
     }
     public void Config() {
@@ -44,5 +49,9 @@ public final class Itemcustomizer extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EnchantsMiningClickEvent(), this);
         getServer().getPluginManager().registerEvents(new EnchantsFarmingClickEvent(), this);
         getServer().getPluginManager().registerEvents(new EnchantsGeneralClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new AttributeModifierClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new AttributePickClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new AddNumber(this), this);
+        getServer().getPluginManager().registerEvents(new EquipmentSlotClickEvent(), this);
     }
 }

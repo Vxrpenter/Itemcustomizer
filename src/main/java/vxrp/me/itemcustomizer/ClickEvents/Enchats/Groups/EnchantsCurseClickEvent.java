@@ -29,7 +29,7 @@ public class EnchantsCurseClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.BINDING_CURSE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
         if (event.getSlot() == 11) {
@@ -39,7 +39,7 @@ public class EnchantsCurseClickEvent implements Listener {
                 EnchantsGroupMenu.OpenMenu(player);
             } else {
                 EnchantsPickMaps.enchantment.put(player.getUniqueId(), Enchantment.VANISHING_CURSE);
-                EnchantsPickMenu.OpenMenu(player);;
+                EnchantsPickMenu.OpenMenu(player);
             }
         }
     }

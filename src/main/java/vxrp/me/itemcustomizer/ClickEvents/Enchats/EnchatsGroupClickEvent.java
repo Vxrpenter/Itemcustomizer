@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import vxrp.me.itemcustomizer.Menus.EditMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.*;
 import vxrp.me.itemcustomizer.Menus.Enchants.Groups.*;
 
@@ -43,6 +44,10 @@ public class EnchatsGroupClickEvent implements Listener {
         if (event.getSlot() == 16) {
             player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
             EnchantsGeneralMenu.OpenMenu(player);
+        }
+        if (event.getSlot() == 26) {
+            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            EditMenu.OpenMenu(player);
         }
     }
 }

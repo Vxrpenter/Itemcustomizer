@@ -10,7 +10,7 @@ import vxrp.me.itemcustomizer.Menus.ItemcustomizerMenu;
 
 
 
-public class Itemcustomizer implements CommandExecutor {
+public class ItemCustomizer implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (sender instanceof Player) {

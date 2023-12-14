@@ -13,7 +13,6 @@ import vxrp.me.itemcustomizer.CreateItem;
 import vxrp.me.itemcustomizer.Hashmaps.ConfirmMaps;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Reset;
-import vxrp.me.itemcustomizer.Itemcustomizer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,51 +62,61 @@ public class EditMenu {
         itemflags.setItemMeta(itemflagsmeta);
 
         ItemStack finish = new ItemStack(Material.ANVIL);
-        ItemMeta finishmeta = finish.getItemMeta();
-        finishmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        finishmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&aFinish"));
-        List<String> finishlore = new ArrayList<>();
-        finishlore.add(ChatColor.translateAlternateColorCodes('&', "&7This finishes the item creation"));
-        finishlore.add(ChatColor.translateAlternateColorCodes('&', "&7all the attributes and effects you chose"));
-        finishlore.add(ChatColor.translateAlternateColorCodes('&', "&7will be added to your item of choice"));
-        finishmeta.setLore(finishlore);
-        finish.setItemMeta(finishmeta);
+        ItemMeta finishMeta = finish.getItemMeta();
+        finishMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        finishMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&aFinish"));
+        List<String> finishLore = new ArrayList<>();
+        finishLore.add(ChatColor.translateAlternateColorCodes('&', "&7This finishes the item creation"));
+        finishLore.add(ChatColor.translateAlternateColorCodes('&', "&7all the attributes and effects you chose"));
+        finishLore.add(ChatColor.translateAlternateColorCodes('&', "&7will be added to your item of choice"));
+        finishMeta.setLore(finishLore);
+        finish.setItemMeta(finishMeta);
 
-        ItemStack displayname = new ItemStack(Material.NAME_TAG);
-        ItemMeta displaynamemeta = displayname.getItemMeta();
-        displaynamemeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        displaynamemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bDisplayName"));
-        List<String> displaynamelore = new ArrayList<>();
-        displaynamelore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the display name,"));
-        displaynamelore.add(ChatColor.translateAlternateColorCodes('&', "&7'you can use color codes too'"));
-        displaynamemeta.setLore(displaynamelore);
-        displayname.setItemMeta(displaynamemeta);
+        ItemStack displayName = new ItemStack(Material.NAME_TAG);
+        ItemMeta displaynameMeta = displayName.getItemMeta();
+        displaynameMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        displaynameMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bDisplayName"));
+        List<String> displayNameLore = new ArrayList<>();
+        displayNameLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the display name,"));
+        displayNameLore.add(ChatColor.translateAlternateColorCodes('&', "&7'you can use color codes too'"));
+        displaynameMeta.setLore(displayNameLore);
+        displayName.setItemMeta(displaynameMeta);
 
         ItemStack enchants = new ItemStack(Material.ENCHANTED_BOOK);
-        ItemMeta enchantsmeta = displayname.getItemMeta();
-        enchantsmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        enchantsmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bEnchants"));
-        List<String> enchantslore = new ArrayList<>();
-        enchantslore.add(ChatColor.translateAlternateColorCodes('&', "&7Adds the specified enchantment to this item"));
-        enchantsmeta.setLore(enchantslore);
-        enchants.setItemMeta(enchantsmeta);
+        ItemMeta enchantsMeta = displayName.getItemMeta();
+        enchantsMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        enchantsMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bEnchants"));
+        List<String> enchantsLore = new ArrayList<>();
+        enchantsLore.add(ChatColor.translateAlternateColorCodes('&', "&7Adds the specified enchantment to this item"));
+        enchantsMeta.setLore(enchantsLore);
+        enchants.setItemMeta(enchantsMeta);
 
         ItemStack unbreakable = new ItemStack(Material.NETHERITE_INGOT);
-        ItemMeta unbreakablemeta = displayname.getItemMeta();
+        ItemMeta unbreakableMeta = displayName.getItemMeta();
         if (itemMeta.isUnbreakable()) {
-            unbreakablemeta.addEnchant(Enchantment.LUCK, 1, false);
+            unbreakableMeta.addEnchant(Enchantment.LUCK, 1, false);
         }
-        unbreakablemeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        unbreakablemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bUnbreakable"));
-        List<String> unbreakablelore = new ArrayList<>();
-        unbreakablelore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the unbreakable tag. An unbreakable item will"));
-        unbreakablelore.add(ChatColor.translateAlternateColorCodes('&', "&7not lose durability."));
-        unbreakablemeta.setLore(unbreakablelore);
-        unbreakable.setItemMeta(unbreakablemeta);
+        unbreakableMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        unbreakableMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bUnbreakable"));
+        List<String> unbreakableLore = new ArrayList<>();
+        unbreakableLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the unbreakable tag. An unbreakable item will"));
+        unbreakableLore.add(ChatColor.translateAlternateColorCodes('&', "&7not lose durability."));
+        unbreakableMeta.setLore(unbreakableLore);
+        unbreakable.setItemMeta(unbreakableMeta);
 
+        ItemStack attributeModifier = new ItemStack(Material.COMMAND_BLOCK);
+        ItemMeta attributeModifierMeta = attributeModifier.getItemMeta();
+        attributeModifierMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        attributeModifierMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bAttribute Modifiers"));
+        List<String> attributeModifierLore = new ArrayList<>();
+        attributeModifierLore.add(ChatColor.translateAlternateColorCodes('&', "&7Set all Attributes and their AttributeModifiers"));
+        attributeModifierMeta.setLore(attributeModifierLore);
+        attributeModifier.setItemMeta(attributeModifierMeta);
+
+        gui.setItem(32, attributeModifier);
         gui.setItem(30, unbreakable);
         gui.setItem(24, enchants);
-        gui.setItem(22, displayname);
+        gui.setItem(22, displayName);
         gui.setItem(49, finish);
         gui.setItem(20, itemflags);
         gui.setItem(53, reset);

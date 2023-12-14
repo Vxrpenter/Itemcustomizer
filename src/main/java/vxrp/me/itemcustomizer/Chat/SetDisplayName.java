@@ -14,6 +14,8 @@ import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Menus.EditMenu;
 
+import java.awt.*;
+
 public class SetDisplayName implements Listener {
     private final Itemcustomizer plugin;
     public SetDisplayName(Itemcustomizer core) {
