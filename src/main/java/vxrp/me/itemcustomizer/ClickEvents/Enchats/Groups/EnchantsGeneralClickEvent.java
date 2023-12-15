@@ -17,9 +17,9 @@ import vxrp.me.itemcustomizer.Menus.Enchants.Groups.EnchantsGeneralMenu;
 public class EnchantsGeneralClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EnchantsGeneralMenu.menuname))) return;
         Player player = (Player) event.getWhoClicked();
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
-        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EnchantsGeneralMenu.menuname))) return;
         event.setCancelled(true);
 
         if (event.getSlot() == 10) {

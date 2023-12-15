@@ -13,8 +13,8 @@ import vxrp.me.itemcustomizer.Menus.EditMenu;
 public class ConfirmClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
-        Player player = (Player) event.getWhoClicked();
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', ConfirmMenu.confirm_menuname))) return;
+        Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
 
         if (event.getSlot() == 4) {

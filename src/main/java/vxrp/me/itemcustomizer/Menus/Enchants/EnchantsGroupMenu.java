@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
+import vxrp.me.itemcustomizer.Menus.Items.GeneralUse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,16 +95,7 @@ public class EnchantsGroupMenu {
         generalmeta.setLore(generallore);
         general.setItemMeta(generalmeta);
 
-        ItemStack back = new ItemStack(Material.ARROW);
-        ItemMeta backMeta = back.getItemMeta();
-        backMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        backMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bBack"));
-        List<String> backLore = new ArrayList<>();
-        backLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sends you back to the edit menu"));
-        backMeta.setLore(backLore);
-        back.setItemMeta(backMeta);
-
-        gui.setItem(26, back);
+        gui.setItem(26, GeneralUse.Back());
         gui.setItem(10, movement);
         gui.setItem(11, attack);
         gui.setItem(12, protection);

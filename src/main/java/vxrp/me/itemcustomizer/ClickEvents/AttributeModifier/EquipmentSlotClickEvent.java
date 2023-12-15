@@ -16,9 +16,9 @@ import vxrp.me.itemcustomizer.Menus.AttributeModifier.EquipmentSlotMenu;
 public class EquipmentSlotClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EquipmentSlotMenu.menuname))) return;
         Player player = (Player) event.getWhoClicked();
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
-        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EquipmentSlotMenu.menuname))) return;
         event.setCancelled(true);
 
         if (event.getSlot() == 10) {

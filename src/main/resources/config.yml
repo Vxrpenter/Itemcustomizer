@@ -1,5 +1,6 @@
 #Messages
   missing_permission: "&cYou are not permitted to use this feature"
+  feature_disabled: "&cThis feature is not available for this item"
 #Permission
   customize_edit:
     set_itemflags: true

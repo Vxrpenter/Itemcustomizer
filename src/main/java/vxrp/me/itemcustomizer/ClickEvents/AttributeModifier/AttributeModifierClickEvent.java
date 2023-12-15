@@ -22,11 +22,11 @@ public class AttributeModifierClickEvent implements Listener {
 
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', AttributeModifierMenu.menuname))) return;
         Player player = (Player) event.getWhoClicked();
         PutIfAbsent.PutIfAbsent(player);
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         List<Attribute> attributeList = AttributeModifierMaps.attributeList.get(player.getUniqueId());
-        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', AttributeModifierMenu.menuname))) return;
         event.setCancelled(true);
         AttributeModifierMaps.number.put(player.getUniqueId(), 0.0);
         AttributeModifierMaps.equipmentSlot.put(player.getUniqueId(), null);

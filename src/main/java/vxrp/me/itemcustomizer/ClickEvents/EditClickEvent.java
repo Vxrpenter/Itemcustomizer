@@ -12,6 +12,7 @@ import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Menus.AttributeModifier.AttributeModifierMenu;
+import vxrp.me.itemcustomizer.Menus.Color.ColorMenu;
 import vxrp.me.itemcustomizer.Menus.ConfirmMenu;
 import vxrp.me.itemcustomizer.Menus.EditMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsGroupMenu;
@@ -23,10 +24,11 @@ public class EditClickEvent implements Listener {
     }
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EditMenu.menuname))) return;
         Player player = (Player) event.getWhoClicked();
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         String permissionmessage =  plugin.getConfig().getString("missing_permission");
-        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EditMenu.menuname))) return;
+        String featureDisabled = plugin.getConfig().getString("feature_disabled");
         event.setCancelled(true);
 
         if (event.getSlot() == 20) {
@@ -88,6 +90,15 @@ public class EditClickEvent implements Listener {
                 player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
                 assert permissionmessage != null;
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', permissionmessage));
+            }
+        }
+        if (event.getSlot() == 28) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', "&bColor"))) {
+                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                ColorMenu.OpenMenu(player);
+            } else {
+                player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', featureDisabled));
             }
         }
     }

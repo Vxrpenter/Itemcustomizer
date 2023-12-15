@@ -2,6 +2,7 @@ package vxrp.me.itemcustomizer.Menus;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -9,10 +10,12 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import vxrp.me.itemcustomizer.CreateItem;
 import vxrp.me.itemcustomizer.Hashmaps.ConfirmMaps;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Reset;
+import vxrp.me.itemcustomizer.Menus.Items.GeneralUse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,7 @@ public class EditMenu {
         UUID uuid = player.getUniqueId();
         Inventory gui = Bukkit.createInventory(null, 6*9, ChatColor.translateAlternateColorCodes('&', menuname));
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
+        Material type = EditMaps.item.get(player.getUniqueId()).getType();
 
         if (ConfirmMaps.confirmed.get(player.getUniqueId())) {
             Reset.reset(player);
@@ -112,6 +116,21 @@ public class EditMenu {
         attributeModifierLore.add(ChatColor.translateAlternateColorCodes('&', "&7Set all Attributes and their AttributeModifiers"));
         attributeModifierMeta.setLore(attributeModifierLore);
         attributeModifier.setItemMeta(attributeModifierMeta);
+
+        if (type == Material.LEATHER_HELMET ||type == Material.LEATHER_CHESTPLATE ||type == Material.LEATHER_LEGGINGS ||type == Material.LEATHER_BOOTS) {
+            ItemStack color = new ItemStack(Material.CAULDRON);
+            ItemMeta colorMeta = color.getItemMeta();
+            colorMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            colorMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bColor"));
+            List<String> colorLore = new ArrayList<>();
+            colorLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the color of the armor"));
+            colorMeta.setLore(colorLore);
+            color.setItemMeta(colorMeta);
+            gui.setItem(28, color);
+        } else {
+            gui.setItem(28, GeneralUse.FeatureDisabled());
+
+        }
 
         gui.setItem(32, attributeModifier);
         gui.setItem(30, unbreakable);

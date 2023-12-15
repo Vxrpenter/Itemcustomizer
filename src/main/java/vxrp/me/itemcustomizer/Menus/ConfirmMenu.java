@@ -20,9 +20,9 @@ public class ConfirmMenu {
         ItemStack reset = new ItemStack(Material.BARRIER);
         ItemMeta resetmeta = reset.getItemMeta();
         resetmeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        resetmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bConfirm"));
+        resetmeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&cConfirm"));
         List<String> resetlore = new ArrayList<>();
-        resetlore.add(ChatColor.translateAlternateColorCodes('&', "&cWARNING: This change cannot be reverted"));
+        resetlore.add(ChatColor.translateAlternateColorCodes('&', "&7This cannot be reverted"));
         resetmeta.setLore(resetlore);
         reset.setItemMeta(resetmeta);
 

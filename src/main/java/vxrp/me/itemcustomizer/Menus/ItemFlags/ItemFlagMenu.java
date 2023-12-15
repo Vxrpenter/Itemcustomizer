@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
+import vxrp.me.itemcustomizer.Menus.Items.GeneralUse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,16 +123,7 @@ public class ItemFlagMenu {
         addallmeta.setLore(addalllore);
         addall.setItemMeta(addallmeta);
 
-        ItemStack back = new ItemStack(Material.ARROW);
-        ItemMeta backMeta = back.getItemMeta();
-        backMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        backMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bBack"));
-        List<String> backLore = new ArrayList<>();
-        backLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sends you back to the edit menu"));
-        backMeta.setLore(backLore);
-        back.setItemMeta(backMeta);
-
-        gui.setItem(26, back);
+        gui.setItem(26, GeneralUse.Back());
         gui.setItem(25, addall);
         gui.setItem(16, hideunbreakable);
         gui.setItem(15, hidepotioneffects);

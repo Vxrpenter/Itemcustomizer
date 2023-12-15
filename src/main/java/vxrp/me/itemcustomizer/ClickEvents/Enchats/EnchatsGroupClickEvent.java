@@ -13,8 +13,8 @@ import vxrp.me.itemcustomizer.Menus.Enchants.Groups.*;
 public class EnchatsGroupClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
-        Player player = (Player) event.getWhoClicked();
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', EnchantsGroupMenu.menuname))) return;
+        Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
 
         if (event.getSlot() == 10) {

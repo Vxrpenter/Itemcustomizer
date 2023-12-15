@@ -21,12 +21,12 @@ import java.util.UUID;
 public class AttributePickClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
+        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', AttributePickMenu.menuname))) return;
         Player player = (Player) event.getWhoClicked();
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         Attribute attribute = AttributeModifierMaps.attribute.get(player.getUniqueId());
         double number = AttributeModifierMaps.number.get(player.getUniqueId());
         EquipmentSlot equipmentSlot = AttributeModifierMaps.equipmentSlot.get(player.getUniqueId());
-        if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', AttributePickMenu.menuname))) return;
         event.setCancelled(true);
 
         if (event.getSlot() == 11) {

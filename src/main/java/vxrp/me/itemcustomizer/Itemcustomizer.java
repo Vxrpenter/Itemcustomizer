@@ -7,6 +7,7 @@ import vxrp.me.itemcustomizer.Chat.SetLevel;
 import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.AttributeModifierClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.AttributePickClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.EquipmentSlotClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.Color.ColorClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.ConfirmClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.EditClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.*;
@@ -53,5 +54,6 @@ public final class Itemcustomizer extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AttributePickClickEvent(), this);
         getServer().getPluginManager().registerEvents(new AddNumber(this), this);
         getServer().getPluginManager().registerEvents(new EquipmentSlotClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new ColorClickEvent(), this);
     }
 }

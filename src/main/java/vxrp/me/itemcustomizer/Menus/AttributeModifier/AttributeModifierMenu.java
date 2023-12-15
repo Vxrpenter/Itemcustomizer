@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Hashmaps.AttributeModifier.AttributeModifierMaps;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
+import vxrp.me.itemcustomizer.Menus.Items.GeneralUse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -145,16 +146,7 @@ public class AttributeModifierMenu {
         movementSpeedMeta.setLore(movementSpeedLore);
         movementSpeed.setItemMeta(movementSpeedMeta);
 
-        ItemStack back = new ItemStack(Material.ARROW);
-        ItemMeta backMeta = back.getItemMeta();
-        backMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        backMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bBack"));
-        List<String> backLore = new ArrayList<>();
-        backLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sends you back to the edit menu"));
-        backMeta.setLore(backLore);
-        back.setItemMeta(backMeta);
-
-        gui.setItem(35, back);
+        gui.setItem(35, GeneralUse.Back());
         gui.setItem(10, armor);
         gui.setItem(11, armorToughness);
         gui.setItem(12, attackDamage);
