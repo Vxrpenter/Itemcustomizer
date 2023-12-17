@@ -97,8 +97,14 @@ public class EditClickEvent implements Listener {
         }
         if (event.getSlot() == 28) {
             if (event.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', "&bColor"))) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                ColorMenu.OpenMenu(player);
+                if (plugin.getConfig().getBoolean("customize_edit.set_color")) {
+                    player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                    ColorMenu.OpenMenu(player);
+                } else {
+                    player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
+                    assert permissionmessage != null;
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', permissionmessage));
+                }
             } else {
                 player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
                 assert featureDisabled != null;
@@ -107,13 +113,19 @@ public class EditClickEvent implements Listener {
         }
         if (event.getSlot() == 34) {
             if (event.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', "&bEffect"))) {
-                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                EffectsMaps.timeIn.put(player.getUniqueId(), 0);
-                EffectsMaps.color.put(player.getUniqueId(), null);
-                EffectsMaps.time.put(player.getUniqueId(), 0);
-                EffectsMaps.amplifier.put(player.getUniqueId(), 0);
-                EffectsMaps.potionMetaData.put(player.getUniqueId(), null);
-                EffectsTypeMenuOne.OpenMenu(player);
+                if (plugin.getConfig().getBoolean("customize_edit.set_effects")) {
+                    player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                    EffectsMaps.timeIn.put(player.getUniqueId(), 0);
+                    EffectsMaps.color.put(player.getUniqueId(), null);
+                    EffectsMaps.time.put(player.getUniqueId(), 0);
+                    EffectsMaps.amplifier.put(player.getUniqueId(), 0);
+                    EffectsMaps.potionMetaData.put(player.getUniqueId(), null);
+                    EffectsTypeMenuOne.OpenMenu(player);
+                } else {
+                    player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
+                    assert permissionmessage != null;
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', permissionmessage));
+                }
             } else {
                 player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
                 assert featureDisabled != null;

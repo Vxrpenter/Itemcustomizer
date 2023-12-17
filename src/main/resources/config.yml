@@ -8,3 +8,5 @@
     set_enchants: true
     set_unbreakable: true
     set_attributemodifier: true
+    set_color: true
+    set_effects: true
