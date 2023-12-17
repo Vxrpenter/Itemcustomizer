@@ -21,9 +21,7 @@ import java.util.UUID;
 public class AttributeModifierMenu {
     public static String menuname = "&bAttributeModifiers";
     public static void OpenMenu(Player player) {
-        UUID uuid = player.getUniqueId();
         Inventory gui = Bukkit.createInventory(null, 4*9, ChatColor.translateAlternateColorCodes('&', menuname));
-        ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         List<Attribute> attributeList = AttributeModifierMaps.attributeList.get(player.getUniqueId());
 
         ItemStack armor = new ItemStack(Material.IRON_CHESTPLATE);

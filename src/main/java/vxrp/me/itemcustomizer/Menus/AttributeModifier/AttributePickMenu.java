@@ -8,8 +8,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import vxrp.me.itemcustomizer.CreateItem;
 import vxrp.me.itemcustomizer.Hashmaps.AttributeModifier.AttributeModifierMaps;
 import vxrp.me.itemcustomizer.Hashmaps.ConfirmMaps;
+import vxrp.me.itemcustomizer.Menus.Items.GeneralUse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +19,7 @@ import java.util.List;
 public class AttributePickMenu {
     public static String menuname = "&bAttribute &7Pick";
     public static void OpenMenu(Player player) {
-        ConfirmMaps.confirmed.putIfAbsent(player.getUniqueId(), false);
-        Inventory gui = Bukkit.createInventory(null, 3*9, ChatColor.translateAlternateColorCodes('&', menuname));
+        Inventory gui = Bukkit.createInventory(null,3*9, ChatColor.translateAlternateColorCodes('&', menuname));
         double number = AttributeModifierMaps.number.get(player.getUniqueId());
 
         ItemStack attribute = new ItemStack(Material.BREWING_STAND);
@@ -44,15 +45,6 @@ public class AttributePickMenu {
         addNumberMeta.setLore(addNumberLore);
         addNumber.setItemMeta(addNumberMeta);
 
-        ItemStack removeNumber = new ItemStack(Material.BARRIER);
-        ItemMeta removeNumberMeta = removeNumber.getItemMeta();
-        removeNumberMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        removeNumberMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&cWIP"));
-        List<String> removeNumberLore = new ArrayList<>();
-        removeNumberLore.add(ChatColor.translateAlternateColorCodes('&', "&7Placeholder item, coming soon"));
-        removeNumberMeta.setLore(removeNumberLore);
-        removeNumber.setItemMeta(removeNumberMeta);
-
         ItemStack equipmentSlot = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
         ItemMeta equipmentSlotMeta = equipmentSlot.getItemMeta();
         equipmentSlotMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
@@ -67,7 +59,7 @@ public class AttributePickMenu {
         equipmentSlotMeta.setLore(equipmentSlotLore);
         equipmentSlot.setItemMeta(equipmentSlotMeta);
 
-        gui.setItem(11, removeNumber);
+        gui.setItem(11, GeneralUse.Remove());
         gui.setItem(13, attribute);
         gui.setItem(15, addNumber);
         gui.setItem(22, equipmentSlot);

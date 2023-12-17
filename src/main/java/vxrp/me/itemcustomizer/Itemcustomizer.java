@@ -2,6 +2,8 @@ package vxrp.me.itemcustomizer;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import vxrp.me.itemcustomizer.Chat.AttributeModifier.AddNumber;
+import vxrp.me.itemcustomizer.Chat.Effects.SetAmplifier;
+import vxrp.me.itemcustomizer.Chat.Effects.SetTime;
 import vxrp.me.itemcustomizer.Chat.SetDisplayName;
 import vxrp.me.itemcustomizer.Chat.SetLevel;
 import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.AttributeModifierClickEvent;
@@ -10,6 +12,10 @@ import vxrp.me.itemcustomizer.ClickEvents.AttributeModifier.EquipmentSlotClickEv
 import vxrp.me.itemcustomizer.ClickEvents.Color.ColorClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.ConfirmClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.EditClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.Effects.EffectsColorClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.Effects.EffectsPickClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.Effects.EffectsTypeOneTwo.EffectsTypeOneClickEvent;
+import vxrp.me.itemcustomizer.ClickEvents.Effects.EffectsTypeOneTwo.EffectsTypeTwoClickEvent;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.*;
 import vxrp.me.itemcustomizer.ClickEvents.Enchats.Groups.*;
 import vxrp.me.itemcustomizer.ClickEvents.ItemFlags.ItemFlagClickEvent;
@@ -55,5 +61,11 @@ public final class Itemcustomizer extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AddNumber(this), this);
         getServer().getPluginManager().registerEvents(new EquipmentSlotClickEvent(), this);
         getServer().getPluginManager().registerEvents(new ColorClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EffectsPickClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EffectsTypeOneClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new EffectsTypeTwoClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new SetTime(this), this);
+        getServer().getPluginManager().registerEvents(new SetAmplifier(this), this);
+        getServer().getPluginManager().registerEvents(new EffectsColorClickEvent(), this);
     }
 }

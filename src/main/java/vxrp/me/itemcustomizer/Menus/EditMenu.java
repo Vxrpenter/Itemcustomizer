@@ -1,9 +1,6 @@
 package vxrp.me.itemcustomizer.Menus;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Color;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -11,6 +8,10 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionData;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.potion.PotionType;
 import vxrp.me.itemcustomizer.CreateItem;
 import vxrp.me.itemcustomizer.Hashmaps.ConfirmMaps;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
@@ -30,6 +31,7 @@ public class EditMenu {
         Inventory gui = Bukkit.createInventory(null, 6*9, ChatColor.translateAlternateColorCodes('&', menuname));
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         Material type = EditMaps.item.get(player.getUniqueId()).getType();
+        ItemStack filler = GeneralUse.Filler();
 
         if (ConfirmMaps.confirmed.get(player.getUniqueId())) {
             Reset.reset(player);
@@ -117,7 +119,7 @@ public class EditMenu {
         attributeModifierMeta.setLore(attributeModifierLore);
         attributeModifier.setItemMeta(attributeModifierMeta);
 
-        if (type == Material.LEATHER_HELMET ||type == Material.LEATHER_CHESTPLATE ||type == Material.LEATHER_LEGGINGS ||type == Material.LEATHER_BOOTS) {
+        if (type == Material.LEATHER_HELMET || type == Material.LEATHER_CHESTPLATE || type == Material.LEATHER_LEGGINGS || type == Material.LEATHER_BOOTS) {
             ItemStack color = new ItemStack(Material.CAULDRON);
             ItemMeta colorMeta = color.getItemMeta();
             colorMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -130,6 +132,20 @@ public class EditMenu {
         } else {
             gui.setItem(28, GeneralUse.FeatureDisabled());
 
+        }
+
+        if (type == Material.POTION || type == Material.LINGERING_POTION || type == Material.SPLASH_POTION) {
+            ItemStack effect = new ItemStack(Material.POTION);
+            ItemMeta effectMeta = effect.getItemMeta();
+            effectMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_POTION_EFFECTS);
+            effectMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bEffect"));
+            List<String> effectLore = new ArrayList<>();
+            effectLore.add(ChatColor.translateAlternateColorCodes('&', "&7Sets the effect of a potion"));
+            effectMeta.setLore(effectLore);
+            effect.setItemMeta(effectMeta);
+            gui.setItem(34, effect);
+        } else {
+            gui.setItem(34, GeneralUse.FeatureDisabled());
         }
 
         gui.setItem(32, attributeModifier);

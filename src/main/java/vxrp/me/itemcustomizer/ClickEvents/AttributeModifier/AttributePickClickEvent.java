@@ -30,7 +30,8 @@ public class AttributePickClickEvent implements Listener {
         event.setCancelled(true);
 
         if (event.getSlot() == 11) {
-
+            itemMeta.removeAttributeModifier(attribute);
+            EditMenu.OpenMenu(player);
         }
         if (event.getSlot() == 13) {
             if (number == 0.0 || equipmentSlot == null) {

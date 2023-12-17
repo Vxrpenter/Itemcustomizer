@@ -34,4 +34,44 @@ public class GeneralUse {
 
         return back;
     }
+    public static ItemStack Filler() {
+        ItemStack filler = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
+        ItemMeta fillerMeta = filler.getItemMeta();
+        fillerMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        fillerMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', " "));
+        filler.setItemMeta(fillerMeta);
+
+        return filler;
+    }
+    public static ItemStack Remove() {
+        ItemStack remove = new ItemStack(Material.BARRIER);
+        ItemMeta removeMeta = remove.getItemMeta();
+        removeMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        removeMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&cRemove"));
+        List<String> removeLore = new ArrayList<>();
+        removeLore.add(ChatColor.translateAlternateColorCodes('&', "&7Click to remove"));
+        removeMeta.setLore(removeLore);
+        remove.setItemMeta(removeMeta);
+
+        return remove;
+    }
+    public static ItemStack NextPage() {
+        ItemStack nextPage = new ItemStack(Material.ARROW);
+        ItemMeta nextPageMeta = nextPage.getItemMeta();
+        nextPageMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        nextPageMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bNext Page"));
+        nextPage.setItemMeta(nextPageMeta);
+
+        return nextPage;
+    }
+    public static ItemStack LastPage() {
+        ItemStack lastPage = new ItemStack(Material.ARROW);
+        ItemMeta lastPageMeta = lastPage.getItemMeta();
+        lastPageMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        lastPageMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bLast Page"));
+        lastPage.setItemMeta(lastPageMeta);
+
+        return lastPage;
+    }
+
 }

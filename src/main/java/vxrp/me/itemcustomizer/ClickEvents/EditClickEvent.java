@@ -10,11 +10,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.CreateItem;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Displayname.SetDisplayNameMaps;
+import vxrp.me.itemcustomizer.Hashmaps.Effects.EffectsMaps;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Menus.AttributeModifier.AttributeModifierMenu;
 import vxrp.me.itemcustomizer.Menus.Color.ColorMenu;
 import vxrp.me.itemcustomizer.Menus.ConfirmMenu;
 import vxrp.me.itemcustomizer.Menus.EditMenu;
+import vxrp.me.itemcustomizer.Menus.Effects.EffectsPickMenu;
+import vxrp.me.itemcustomizer.Menus.Effects.EffectsTypeOneTwo.EffectsTypeMenuOne;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsGroupMenu;
 import vxrp.me.itemcustomizer.Menus.ItemFlags.ItemFlagMenu;
 public class EditClickEvent implements Listener {
@@ -98,6 +101,22 @@ public class EditClickEvent implements Listener {
                 ColorMenu.OpenMenu(player);
             } else {
                 player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
+                assert featureDisabled != null;
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', featureDisabled));
+            }
+        }
+        if (event.getSlot() == 34) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', "&bEffect"))) {
+                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                EffectsMaps.timeIn.put(player.getUniqueId(), 0);
+                EffectsMaps.color.put(player.getUniqueId(), null);
+                EffectsMaps.time.put(player.getUniqueId(), 0);
+                EffectsMaps.amplifier.put(player.getUniqueId(), 0);
+                EffectsMaps.potionMetaData.put(player.getUniqueId(), null);
+                EffectsTypeMenuOne.OpenMenu(player);
+            } else {
+                player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
+                assert featureDisabled != null;
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', featureDisabled));
             }
         }

@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -169,7 +168,7 @@ public class ColorMenu {
         gui.setItem(25, colorSilver);
         gui.setItem(28, colorTeal);
         gui.setItem(29, colorWhite);
-        gui.setItem(29, colorYellow);
+        gui.setItem(30, colorYellow);
         player.openInventory(gui);
     }
 }

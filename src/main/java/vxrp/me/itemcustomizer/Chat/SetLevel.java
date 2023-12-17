@@ -6,10 +6,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.scheduler.BukkitScheduler;
+import vxrp.me.itemcustomizer.Hashmaps.Effects.EffectsMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.EnchantsPickMaps;
 import vxrp.me.itemcustomizer.Hashmaps.Enchants.SetLevelMaps;
 import vxrp.me.itemcustomizer.Hashmaps.PutIfAbsent;
 import vxrp.me.itemcustomizer.Itemcustomizer;
+import vxrp.me.itemcustomizer.Menus.Effects.EffectsPickMenu;
 import vxrp.me.itemcustomizer.Menus.Enchants.EnchantsPickMenu;
 
 

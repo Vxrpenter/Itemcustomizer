@@ -10,13 +10,16 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import vxrp.me.itemcustomizer.Hashmaps.EditMaps;
+import vxrp.me.itemcustomizer.Hashmaps.Effects.EffectsMaps;
 import vxrp.me.itemcustomizer.Menus.Color.ColorMenu;
 import vxrp.me.itemcustomizer.Menus.EditMenu;
+import vxrp.me.itemcustomizer.Menus.Effects.EffectsPickMenu;
 
 public class ColorClickEvent implements Listener {
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent event) {
         if (!event.getView().getTitle().equals(ChatColor.translateAlternateColorCodes('&', ColorMenu.menuname))) return;
+        if (event.getCurrentItem() == null) return;
         Player player = (Player) event.getWhoClicked();
         ItemMeta itemMeta = EditMaps.itemmeta.get(player.getUniqueId());
         LeatherArmorMeta leatherArmorMeta = (LeatherArmorMeta) event.getCurrentItem().getItemMeta();
