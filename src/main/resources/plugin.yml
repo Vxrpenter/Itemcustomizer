@@ -7,7 +7,6 @@ commands:
     aliases: "customizer"
   edit:
     aliases: "edititem"
-  save:
-    aliases: "saveitem"
+
 
 

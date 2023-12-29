@@ -3,10 +3,10 @@
   feature_disabled: "&cThis feature is not available for this item"
 #Permission
   customize_edit:
-    set_itemflags: true
-    set_displayname: true
+    set_itemFlags: true
+    set_displayName: true
     set_enchants: true
     set_unbreakable: true
-    set_attributemodifier: true
+    set_attributeModifier: true
     set_color: true
     set_effects: true
