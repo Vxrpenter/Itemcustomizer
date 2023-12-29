@@ -1,4 +1,6 @@
 # Itemcustomizer
+![GitHub all releases](https://img.shields.io/github/downloads/Vxrpenter/Itemcustomizer/total?style=flat-square&color=%233A768E)
+![GitHub License](https://img.shields.io/github/license/Vxrpenter/Itemcustomizer?style=flat-square&color=%233A768E)
 > [!WARNING]
 > This plugin is a pre-release, some features may not work yet or bugs may occur!!!
 
