@@ -14,6 +14,8 @@ import org.bukkit.potion.PotionEffect;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Storage.EditingStorage;
 import vxrp.me.itemcustomizer.menus.EditMenu;
+import vxrp.me.itemcustomizer.menus.setValues.SetAmplifierMenu;
+import vxrp.me.itemcustomizer.menus.setValues.SetTimeMenu;
 import vxrp.me.itemcustomizer.menus.effects.effectstypeonetwo.EffectsTypeMenuOne;
 import vxrp.me.itemcustomizer.menus.items.GeneralItems;
 import vxrp.me.itemcustomizer.util.ItemBuilder;
@@ -94,9 +96,7 @@ public class EffectsPickMenu implements InventoryProvider {
             contents.set(1,6, ClickableItem.of(timeInSeconds, e -> {
                 if (e.isLeftClick()) {
                     player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                    EditingStorage.setTimeRunning(player.getUniqueId(), true);
-                    player.closeInventory();
-                    player.sendMessage(ChatColor.GRAY + "&7Please type a value (time in seconds)");
+                    SetTimeMenu.openMenu(player, plugin);
                 } else if (e.isRightClick()) {
                     player.playSound(player, Sound.BLOCK_BARREL_OPEN, 10, 1);
                     EditingStorage.setTimeIn(player.getUniqueId(), 1);
@@ -113,9 +113,7 @@ public class EffectsPickMenu implements InventoryProvider {
             contents.set(1,6, ClickableItem.of(timeInMinutes, e -> {
                 if (e.isLeftClick()) {
                     player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                    EditingStorage.setTimeRunning(player.getUniqueId(), true);
-                    player.closeInventory();
-                    player.sendMessage(ChatColor.GRAY + "&7Please type a value (time in minutes)");
+                    SetTimeMenu.openMenu(player, plugin);
                 } else if (e.isRightClick()) {
                     player.playSound(player, Sound.BLOCK_BARREL_OPEN, 10, 1);
                     EditingStorage.setTimeIn(player.getUniqueId(), 2);
@@ -132,9 +130,7 @@ public class EffectsPickMenu implements InventoryProvider {
             contents.set(1,6, ClickableItem.of(timeInTicks, e -> {
                 if (e.isLeftClick()) {
                     player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                    EditingStorage.setTimeRunning(player.getUniqueId(), true);
-                    player.closeInventory();
-                    player.sendMessage(ChatColor.GRAY + "&7Please type a value (time in ticks)");
+                    SetTimeMenu.openMenu(player, plugin);
                 } else if (e.isRightClick()) {
                     player.playSound(player, Sound.BLOCK_BARREL_OPEN, 10, 1);
                     EditingStorage.setTimeIn(player.getUniqueId(), 0);
@@ -151,9 +147,7 @@ public class EffectsPickMenu implements InventoryProvider {
         contents.set(0,5, ClickableItem.of(itemAmplifier, e -> {
             if (!e.isLeftClick()) return;
             player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-            EditingStorage.setAmplifierRunning(player.getUniqueId(), true);
-            player.closeInventory();
-            player.sendMessage(ChatColor.GRAY + "Type a value (amplifier)");
+            SetAmplifierMenu.openMenu(player, plugin);
         }));
         //Color
         final ItemStack itemColor = new ItemBuilder(Material.CAULDRON)

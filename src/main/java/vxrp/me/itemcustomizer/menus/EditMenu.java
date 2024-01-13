@@ -5,16 +5,19 @@ import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
 import net.kyori.adventure.text.Component;
-import org.bukkit.*;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.CreateItem;
-import vxrp.me.itemcustomizer.Storage.EditingStorage;
 import vxrp.me.itemcustomizer.Itemcustomizer;
+import vxrp.me.itemcustomizer.Storage.EditingStorage;
 import vxrp.me.itemcustomizer.Storage.ResetStorage;
+import vxrp.me.itemcustomizer.menus.setValues.SetDisplayNameMenu;
 import vxrp.me.itemcustomizer.menus.attributemodifier.AttributeModifierMenu;
 import vxrp.me.itemcustomizer.menus.color.ColorMenu;
 import vxrp.me.itemcustomizer.menus.effects.effectstypeonetwo.EffectsTypeMenuOne;
@@ -86,9 +89,8 @@ public class EditMenu implements InventoryProvider {
         contents.set(2, 4, ClickableItem.of(displayName, e -> {
             if (e.isLeftClick()) {
                 if (plugin.getConfig().getBoolean("customize_edit.set_displayName")) {
-                    EditingStorage.setDisplayNameRunning(player.getUniqueId(), true);
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c!!! Please enter the DisplayName in the chat &c!!!"));
-                    player.closeInventory();
+                    player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                    SetDisplayNameMenu.openMenu(player, plugin);
                 } else {
                     player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
                     assert permissionMessage != null;

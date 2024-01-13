@@ -40,14 +40,6 @@ public class EditingStorage {
     //
     //Enchants
     //
-        //SetLevel
-        private static final Map<UUID, Boolean> setLevelRunning = new HashMap<>();
-        public static Boolean getSetLevelRunning(UUID uuid) {
-            return setLevelRunning.get(uuid);
-        }
-        public static void setSetLevelRunning(UUID uuid, Boolean bool) {
-            setLevelRunning.put(uuid, bool);
-        }
         //EnchantingLevel
         private static final Map<UUID, Integer> enchantingLevel = new HashMap<>();
         public static Integer getEnchantingLevel(UUID uuid) {
@@ -63,17 +55,6 @@ public class EditingStorage {
         }
         public static void setEnchantment(UUID uuid, Enchantment enchant) {
             enchantment.put(uuid, enchant);
-        }
-    //
-    //DisplayName
-    //
-        //SetDisplayName
-        private static final Map<UUID, Boolean> setDisplayNameRunning = new HashMap<>();
-        public static Boolean getDisplayNameRunning(UUID uuid) {
-            return setDisplayNameRunning.get(uuid);
-        }
-        public static void setDisplayNameRunning(UUID uuid, Boolean bool) {
-            setDisplayNameRunning.put(uuid, bool);
         }
     //
     //Effects
@@ -94,14 +75,6 @@ public class EditingStorage {
         public static void setTime(UUID uuid, Integer integer) {
             time.put(uuid, integer);
         }
-        //TimeRunning
-        private static final Map<UUID, Boolean> timeRunning = new HashMap<>();
-        public static Boolean getTimeRunning(UUID uuid) {
-            return timeRunning.get(uuid);
-        }
-        public static void setTimeRunning(UUID uuid, Boolean bool) {
-            timeRunning.put(uuid, bool);
-        }
         //Amplifier
         private static final Map<UUID, Integer> amplifier = new HashMap<>();
         public static Integer getAmplifier(UUID uuid) {
@@ -109,14 +82,6 @@ public class EditingStorage {
         }
         public static void setAmplifier(UUID uuid, Integer integer) {
             amplifier.put(uuid, integer);
-        }
-        //AmplifierRunning
-        private static final Map<UUID, Boolean> amplifierRunning = new HashMap<>();
-        public static Boolean getAmplifierRunning(UUID uuid) {
-            return amplifierRunning.get(uuid);
-        }
-        public static void setAmplifierRunning(UUID uuid, Boolean bool) {
-            amplifierRunning.put(uuid, bool);
         }
         //Color
         private static final Map<UUID, Color> color = new HashMap<>();
@@ -161,28 +126,15 @@ public class EditingStorage {
         public static void setEquipmentSlot(UUID uuid, EquipmentSlot equipSlot) {
             equipmentSlot.put(uuid, equipSlot);
         }
-        //AttributeModifierRunning
-        private static final Map<UUID, Boolean> attributeModifierRunning = new HashMap<>();
-        public static boolean getAttributeModifierRunning(UUID uuid) {
-            return attributeModifierRunning.get(uuid);
-        }
-        public static void setAttributeModifierRunning(UUID uuid, Boolean bool) {
-            attributeModifierRunning.put(uuid, bool);
-        }
     //
     //setStorage set's values for Maps that are null to avoid
     //NullPointerExceptions
         public static void setStorage(UUID uuid) {
             confirmed.putIfAbsent(uuid, false);
-            setLevelRunning.putIfAbsent(uuid, false);
             enchantingLevel.putIfAbsent(uuid, 0);
-            setDisplayNameRunning.putIfAbsent(uuid, false);
             time.putIfAbsent(uuid, 0);
-            timeRunning.putIfAbsent(uuid, false);
             amplifier.putIfAbsent(uuid, 0);
-            amplifierRunning.putIfAbsent(uuid, false);
             timeIn.putIfAbsent(uuid, 0);
             number.putIfAbsent(uuid, 0.0);
-            attributeModifierRunning.putIfAbsent(uuid, false);
         }
 }

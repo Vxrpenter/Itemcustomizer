@@ -17,6 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Storage.EditingStorage;
 import vxrp.me.itemcustomizer.menus.EditMenu;
+import vxrp.me.itemcustomizer.menus.setValues.SetNumberMenu;
 import vxrp.me.itemcustomizer.menus.items.GeneralItems;
 import vxrp.me.itemcustomizer.util.ItemBuilder;
 
@@ -72,9 +73,7 @@ public class AttributePickMenu implements InventoryProvider {
         contents.set(1, 6, ClickableItem.of(addNumber, e -> {
             if (!e.isLeftClick()) return;
             player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-            EditingStorage.setAttributeModifierRunning(player.getUniqueId(), true);
-            player.closeInventory();
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c!!! &7Please type the value &c!!!"));
+            SetNumberMenu.openMenu(player, plugin);
         }));
         //EquipmentSlot
         ItemStack equipmentSlot = new ItemStack(Material.CHAINMAIL_CHESTPLATE);

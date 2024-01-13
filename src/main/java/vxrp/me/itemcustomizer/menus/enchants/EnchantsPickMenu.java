@@ -15,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.Storage.EditingStorage;
 import vxrp.me.itemcustomizer.menus.EditMenu;
+import vxrp.me.itemcustomizer.menus.setValues.IgnoreLevelRestrictionsMenu;
 import vxrp.me.itemcustomizer.menus.items.GeneralItems;
 import vxrp.me.itemcustomizer.util.ItemBuilder;
 
@@ -78,9 +79,7 @@ public class EnchantsPickMenu implements InventoryProvider {
         contents.set(1, 6, ClickableItem.of(ignoreLevelRestrictions, e -> {
             if (e.isLeftClick()) {
                 player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-                EditingStorage.setSetLevelRunning(player.getUniqueId(), true);
-                player.closeInventory();
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Please type a value from 1 to 255"));
+                IgnoreLevelRestrictionsMenu.openMenu(player, plugin);
             }
         }));
         //Add Enchantment
