@@ -1,6 +1,5 @@
 # Itemcustomizer
 ![GitHub all releases](https://img.shields.io/github/downloads/Vxrpenter/Itemcustomizer/total?style=flat-square&color=%233A768E)
-![GitHub License](https://img.shields.io/github/license/Vxrpenter/Itemcustomizer?style=flat-square&color=%233A768E)
 > [!IMPORTANT]
 > <details>
 > <summary>Pre-Release</summary>
