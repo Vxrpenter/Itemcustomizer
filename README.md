@@ -1,4 +1,14 @@
 # Itemcustomizer
+
+<div align="center">
+  <a href="https://modrinth.com/plugin/itemcustomizer">
+    <img src="https://img.shields.io/badge/%20Modrinth-e?style=for-the-badge&logo=modrinth&color=gray" alt="Modrinth Badge"/>
+  </a>
+  <a href="https://www.spigotmc.org/resources/itemcustomizer-paper-only.113885/">
+    <img src="https://img.shields.io/badge/%20Spigot-e?style=for-the-badge&logo=spigotmc&color=gray" alt="Spigot Badge"/>
+  </a>
+</div>
+
 ![GitHub all releases](https://img.shields.io/github/downloads/Vxrpenter/Itemcustomizer/total?style=flat-square&color=%233A768E)
 > [!IMPORTANT]
 > <details>
