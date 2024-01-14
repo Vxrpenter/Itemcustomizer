@@ -1,3 +1,5 @@
+#Settings
+  notify_when_outdated: true
 #Messages
   missing_permission: "&cYou are not permitted to use this feature"
   feature_disabled: "&cThis feature is not available for this item"
