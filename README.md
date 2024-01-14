@@ -27,3 +27,4 @@ using the Itemcustomizer gui.
 ### Permissions
 - `customize.use` | to use the /itemcustomizer command
 - `customize.edit` | to use the /createcustom command
+- `customize.update` | to get notified when a new version comes out
