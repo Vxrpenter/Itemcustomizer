@@ -16,9 +16,9 @@
 >   This plugin is a pre-release, some features may not work yet or bugs may occur!!!
 > </details>
 
-With this plugin you are able to modify/edit items ingame, you can do this
-using the Itemcustomizer gui.
+With this plugin you are able to modify/edit items ingame, you can do thisusing the Itemcustomizer gui.
 
+**Supported Versions:** `1.19.2`
 ### Commands
 - `/edit` just use this commands when holding a item in your hand, the gui will open und you
                  will be able to customize the item to your liking
