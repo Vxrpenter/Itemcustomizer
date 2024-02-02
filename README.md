@@ -1,15 +1,7 @@
+
 # Itemcustomizer
-
-<div align="center">
-  <a href="https://modrinth.com/plugin/itemcustomizer">
-    <img src="https://img.shields.io/badge/%20Modrinth-e?style=for-the-badge&logo=modrinth&color=gray" alt="Modrinth Badge"/>
-  </a>
-  <a href="https://www.spigotmc.org/resources/itemcustomizer-paper-only.113885/">
-    <img src="https://img.shields.io/badge/%20Spigot-e?style=for-the-badge&logo=spigotmc&color=gray" alt="Spigot Badge"/>
-  </a>
-</div>
-
-![GitHub all releases](https://img.shields.io/github/downloads/Vxrpenter/Itemcustomizer/total?style=flat-square&color=%233A768E)
+[<img alt="paper" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/paper_vector.svg">](https://papermc.io/)
+[<img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg">](https://modrinth.com/plugin/itemcustomizer)
 > [!IMPORTANT]
 > <details>
 > <summary>Pre-Release</summary>
