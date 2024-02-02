@@ -22,6 +22,7 @@ With this plugin you are able to modify/edit items ingame, you can do thisusing 
 - `customize.use` | to use the /itemcustomizer command
 - `customize.edit` | to use the /createcustom command
 - `customize.update` | to get notified when a new version comes out
+- `customize.admin` | to use features like reload config or the admin panel
 
 ## bStats
 [<img alt="bStats" src="https://bstats.org/signatures/bukkit/Itemcustomizer.svg"/>](https://bstats.org/plugin/bukkit/Itemcustomizer/20886)
