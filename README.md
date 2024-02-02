@@ -11,12 +11,17 @@
 With this plugin you are able to modify/edit items ingame, you can do thisusing the Itemcustomizer gui.
 
 **Supported Versions:** `1.19.2`
-### Commands
+
+## Commands
+
 - `/edit` just use this commands when holding a item in your hand, the gui will open und you
                  will be able to customize the item to your liking
 - `/itemcustomizer|customizer` currently not working
 
-### Permissions
+## Permissions
 - `customize.use` | to use the /itemcustomizer command
 - `customize.edit` | to use the /createcustom command
 - `customize.update` | to get notified when a new version comes out
+
+## bStats
+[<img alt="bStats" src="https://bstats.org/signatures/bukkit/Itemcustomizer.svg"/>](https://bstats.org/plugin/bukkit/Itemcustomizer/20886)
