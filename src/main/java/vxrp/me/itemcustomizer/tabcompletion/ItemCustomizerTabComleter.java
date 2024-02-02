@@ -15,7 +15,9 @@ public class ItemCustomizerTabComleter implements TabCompleter {
         if (args.length == 0) return null;
         List<String> list = new ArrayList<>();
         list.add("help");
-        list.add("reloadconfig");
+        if (sender.hasPermission("customize.admin")) {
+            list.add("reloadconfig");
+        }
         list.add("menu");
         return list;
     }

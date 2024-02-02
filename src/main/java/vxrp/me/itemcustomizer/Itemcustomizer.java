@@ -9,7 +9,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import vxrp.me.itemcustomizer.Storage.EditingStorage;
 import vxrp.me.itemcustomizer.commands.EditCommand;
+import vxrp.me.itemcustomizer.commands.ForceEditCommand;
 import vxrp.me.itemcustomizer.commands.ItemCustomizerCommand;
 import vxrp.me.itemcustomizer.tabcompletion.ItemCustomizerTabComleter;
 import vxrp.me.itemcustomizer.util.version.UpdateChecker;
@@ -18,7 +20,7 @@ public final class Itemcustomizer extends JavaPlugin implements Listener {
     private static InventoryManager invManager;
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(this,this);
+        listeners();
         checkForUpdates();
         Itemcustomizer.invManager = new InventoryManager(this);
         invManager.init();
@@ -32,12 +34,16 @@ public final class Itemcustomizer extends JavaPlugin implements Listener {
     public void commands() {
         getCommand("itemcustomizer").setExecutor(new ItemCustomizerCommand(this));
         getCommand("edit").setExecutor(new EditCommand(this));
+        getCommand("forceedit").setExecutor(new ForceEditCommand(this));
     }
     public void tabCompletion() {
         getCommand("itemcustomizer").setTabCompleter(new ItemCustomizerTabComleter());
     }
     public void config() {
         saveDefaultConfig();
+    }
+    public void listeners() {
+        getServer().getPluginManager().registerEvents(this,this);
     }
 
     public void checkForUpdates() {
@@ -53,6 +59,8 @@ public final class Itemcustomizer extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
+        EditingStorage.setStorage(e.getPlayer().getUniqueId());
+
         if (!this.getConfig().getBoolean("notify_when_outdated")) return;
         new UpdateChecker(this, 113885).getLatestVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) return;

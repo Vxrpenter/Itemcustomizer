@@ -18,9 +18,9 @@ import vxrp.me.itemcustomizer.menus.EditMenu;
 
 import java.util.Objects;
 
-public class EditCommand implements CommandExecutor {
+public class ForceEditCommand implements CommandExecutor {
     private final Itemcustomizer plugin;
-    public EditCommand(vxrp.me.itemcustomizer.Itemcustomizer itemcustomizer) {
+    public ForceEditCommand(vxrp.me.itemcustomizer.Itemcustomizer itemcustomizer) {
         this.plugin = itemcustomizer;
     }
     @Override
@@ -29,13 +29,12 @@ public class EditCommand implements CommandExecutor {
             Player player = (Player) sender;
             EditingStorage.setStorage(player.getUniqueId());
             if (args.length != 0) return false;
-
-            if (Objects.requireNonNull(plugin.getConfig().getString("blocked_items")).contains(player.getInventory().getItemInMainHand().getType().toString())) {
+            if (!Objects.requireNonNull(plugin.getConfig().getString("blocked_items")).contains(player.getInventory().getItemInMainHand().getType().toString())) {
                 player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(
-                        plugin.getConfig().getString("item_blocked"))));
+                player.sendMessage(ChatColor.RED + "You can only forceedit items that are blocked");
                 return false;
             }
+
             if (player.getInventory().getItemInMainHand().getType() != Material.AIR) {
                 ItemStack itemstack = new ItemStack(player.getInventory().getItemInMainHand().getType());
                 ItemMeta itemmeta = itemstack.getItemMeta();

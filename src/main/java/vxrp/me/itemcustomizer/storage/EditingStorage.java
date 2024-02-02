@@ -126,6 +126,11 @@ public class EditingStorage {
         public static void setEquipmentSlot(UUID uuid, EquipmentSlot equipSlot) {
             equipmentSlot.put(uuid, equipSlot);
         }
+
+    //
+    //Admin Panel
+    //
+
     //
     //setStorage set's values for Maps that are null to avoid
     //NullPointerExceptions

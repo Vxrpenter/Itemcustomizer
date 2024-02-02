@@ -5,5 +5,10 @@ api-version: '1.19'
 commands:
   itemcustomizer:
     aliases: "customizer"
+    permission: "customize.use"
   edit:
     aliases: "edititem"
+    permission: "customize.edit"
+  forceedit:
+    aliases: "forceedititem"
+    permission: "customize.admin"

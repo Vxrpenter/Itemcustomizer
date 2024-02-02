@@ -1,4 +1,4 @@
-package vxrp.me.itemcustomizer.menus.itemFlags;
+package vxrp.me.itemcustomizer.menus.itemflags;
 
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;

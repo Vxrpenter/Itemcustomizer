@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import vxrp.me.itemcustomizer.Itemcustomizer;
 import vxrp.me.itemcustomizer.menus.itemcustomizer.ItemCustomizerMenu;
+
 public class ItemCustomizerCommand implements CommandExecutor {
     private final Itemcustomizer plugin;
     public ItemCustomizerCommand(vxrp.me.itemcustomizer.Itemcustomizer itemcustomizer) {
@@ -15,39 +16,42 @@ public class ItemCustomizerCommand implements CommandExecutor {
     }
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        String onlyPlayers = "This Command can only be executed by Players";
 
-            if (player.hasPermission("customize.use")) {
-                if (args.length == 0) {
-                    ItemCustomizerMenu.openMenu(player, plugin);
-                } else if (args.length == 1) {
-                    if (args[0].equals("help".toLowerCase())) {
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7=============== &b&lItemCustomizer &7| &c&lHelp&7 ==============="));
-                        player.sendMessage(" ");
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&nCommand Explanations"));
-                        player.sendMessage(" ");
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/Edit | &7With this Command you can edit an item"));
-                        player.sendMessage(" ");
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7===================================================="));
-                    }
-                    if (args[0].equals("menu".toLowerCase())) {
-                        ItemCustomizerMenu.openMenu(player, plugin);
-                    }
-                    if (args[0].equals("reloadconfig".toLowerCase())) {
-                        plugin.reloadConfig();
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Config.yml reloaded successfully"));
-                    }
-
-                    else if (!args[0].equals("help".toLowerCase())){
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Usage: &b/itemcustomizer &7| &b/customizer &7[&bhelp&7|&bmenu&7|&breloadconfig&7]"));
-                    }
-                }
+        if (args.length == 0) {
+            if (sender instanceof Player) {
+                ItemCustomizerMenu.openMenu((Player) sender, plugin);
             } else {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cYou are not permitted to use this Command"));
+                sender.sendMessage(ChatColor.RED+ onlyPlayers);
             }
-        } else {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cThis Command can only be executed by Players"));
+        } else if (args.length == 1) {
+            if (args[0].equals("help".toLowerCase())) {
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7=============== &b&lItemCustomizer &7| &b&lHelp&7 ==============="));
+                sender.sendMessage(" ");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&nCommands"));
+                sender.sendMessage(" ");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/Edit | &7Use while holding an item in your hand"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &b/Itemcustomizer | &7Usage: /itemcustomizer|customizer [help|menu|reloadconfig|tempblock]"));
+                sender.sendMessage(" ");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7===================================================="));
+            }
+            if (args[0].equals("menu".toLowerCase())) {
+                if (sender instanceof Player) {
+                    ItemCustomizerMenu.openMenu((Player) sender, plugin);
+                } else {
+                    sender.sendMessage(ChatColor.RED+ onlyPlayers);
+                }
+            }
+            if (sender.hasPermission("customize.admin")) {
+                if (args[0].equals("reloadconfig".toLowerCase())) {
+                    plugin.reloadConfig();
+                    sender.sendMessage(ChatColor.GRAY + "Config.yml reloaded successfully");
+
+                }
+            }
+            else if (!args[0].equals("help".toLowerCase())){
+                sender.sendMessage(ChatColor.GRAY + "Usage: /itemcustomizer|customizer [help|menu|reloadconfig|tempblock]");
+            }
         }
         return false;
     }

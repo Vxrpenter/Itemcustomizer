@@ -11,7 +11,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import vxrp.me.itemcustomizer.Itemcustomizer;
+import vxrp.me.itemcustomizer.menus.itemcustomizer.adminpanel.AdminMenu;
+import vxrp.me.itemcustomizer.menus.items.GeneralItems;
 import vxrp.me.itemcustomizer.util.ItemBuilder;
+
+import java.util.Objects;
 
 public class ItemCustomizerMenu implements InventoryProvider {
     private final Itemcustomizer plugin;
@@ -38,7 +42,9 @@ public class ItemCustomizerMenu implements InventoryProvider {
                 .build();
         contents.set(1,4, ClickableItem.of(edit, e -> {
             if (!e.isLeftClick()) return;
-            player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            if (player.getInventory().getItemInMainHand() .getType()!= Material.AIR) {
+                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+            }
             player.performCommand("edit");
         }));
         //Permissions
@@ -52,6 +58,27 @@ public class ItemCustomizerMenu implements InventoryProvider {
             player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
             PermissionMenu.openMenu(player, plugin);
         }));
+        //AdminPanel
+        final ItemStack adminPanel = new ItemBuilder(Material.BARRIER)
+                .hideFlag(ItemFlag.HIDE_ATTRIBUTES)
+                .displayName(ChatColor.AQUA + "Admin Panel")
+                .lore(ChatColor.GRAY + "ItemCustomizer admin panel")
+                .build();
+        if (player.hasPermission("customize.admin")) {
+            contents.set(2,6, ClickableItem.of(adminPanel, e -> {
+                if (!e.isLeftClick()) return;
+                player.playSound(player, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                AdminMenu.openMenu(player, plugin);
+            }));
+        } else {
+            contents.set(2, 6, ClickableItem.of(GeneralItems.noPermission(), e -> {
+                if (!e.isLeftClick()) return;
+                player.playSound(player, Sound.ENTITY_VILLAGER_NO, 10, 1);
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        Objects.requireNonNull(plugin.getConfig().getString("missing_permission"))));
+                AdminMenu.openMenu(player, plugin);
+            }));
+        }
     }
 
     @Override

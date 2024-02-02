@@ -22,7 +22,7 @@ import vxrp.me.itemcustomizer.menus.attributemodifier.AttributeModifierMenu;
 import vxrp.me.itemcustomizer.menus.color.ColorMenu;
 import vxrp.me.itemcustomizer.menus.effects.effectstypeonetwo.EffectsTypeMenuOne;
 import vxrp.me.itemcustomizer.menus.enchants.EnchantsOne;
-import vxrp.me.itemcustomizer.menus.itemFlags.ItemFlagMenu;
+import vxrp.me.itemcustomizer.menus.itemflags.ItemFlagMenu;
 import vxrp.me.itemcustomizer.menus.items.GeneralItems;
 import vxrp.me.itemcustomizer.util.ItemBuilder;
 
