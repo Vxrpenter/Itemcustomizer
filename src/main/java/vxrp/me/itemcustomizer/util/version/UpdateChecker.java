@@ -12,15 +12,17 @@ import java.util.function.Consumer;
 public class UpdateChecker {
 
     private Itemcustomizer plugin;
-    private  int Id;
+    private String Id;
+    private String channel;
 
-    public UpdateChecker (Itemcustomizer plugin, int Id) {
+    public UpdateChecker (Itemcustomizer plugin, String Id, String channel) {
         this.plugin = plugin;
         this.Id = Id;
+        this.channel = channel;
     }
     public void getLatestVersion(Consumer<String> consumer) {
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
-            try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + this.Id).openStream(); Scanner scanner = new Scanner(inputStream)) {
+            try (InputStream inputStream = new URL("https://hangar.papermc.io/api/v1/projects/" + this.Id + "/latest?channel=" + this.channel).openStream(); Scanner scanner = new Scanner(inputStream)) {
                 if (scanner.hasNext()) {
                     consumer.accept(scanner.next());
                 }
