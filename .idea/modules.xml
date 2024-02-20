@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Itemcustomizer.iml" filepath="$PROJECT_DIR$/Itemcustomizer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Itemcustomizer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Itemcustomizer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Itemcustomizer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Itemcustomizer.test.iml" />
     </modules>
   </component>
 </project>

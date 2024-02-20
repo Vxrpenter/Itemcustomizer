@@ -1,6 +1,6 @@
 name: Itemcustomizer
-version: '${project.version}'
-main: vxrp.me.itemcustomizer.Itemcustomizer
+version: '0.6.1'
+main: me.vxrp.itemcustomizer.Itemcustomizer
 api-version: '1.19'
 commands:
   itemcustomizer:
