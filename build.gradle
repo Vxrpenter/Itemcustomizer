@@ -20,7 +20,7 @@ dependencies {
 }
 
 group = 'vxrp.me'
-version = '0.6.1'
+version = '0.6.2'
 description = 'Itemcustomizer'
 java.sourceCompatibility = JavaVersion.VERSION_17
 
