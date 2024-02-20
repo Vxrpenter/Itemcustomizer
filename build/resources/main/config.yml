@@ -1,0 +1,26 @@
+#Settings
+  #When true you will get notified in game when a new version comes out
+  notify_when_outdated: true
+  #FEATURE WIP
+  #Enter the item that you want to block in this way: item in caps example: APPLE or BARRIER
+  #list of all materials here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+  blocked_items:
+      -
+#Messages
+  #Is send when the player doesn't have the permission to use a certain feature
+  missing_permission: "&cYou are not permitted to use this feature"
+  #Is send when a feature cannot be used on a certain item or if the feature's
+  #still in development
+  feature_disabled: "&cThis feature is not available"
+  #Send when an item can't be edited because it is on the blocked items list
+  item_blocked: "&cThis type of item can't be edited, it has been blocked by the server owner"
+#Permission
+  #Set's what features player's with the 'customize.edit' permission can use
+  customize_edit:
+    set_itemFlags: true
+    set_displayName: true
+    set_enchants: true
+    set_unbreakable: true
+    set_attributeModifier: true
+    set_color: true
+    set_effects: true

@@ -1,0 +1,50 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    maven {url = uri('https://repo.papermc.io/repository/maven-public/')}
+    maven {url = uri('https://oss.sonatype.org/content/groups/public/')}
+    maven {url = uri('https://repo.codemc.io/repository/maven-snapshots/')}
+    maven {url = uri('https://repo.maven.apache.org/maven2/')}
+}
+
+dependencies {
+    compileOnly('org.bstats:bstats-bukkit:3.0.2')
+    compileOnly('io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT')
+    implementation( 'net.wesjd:anvilgui:1.9.2-SNAPSHOT')
+    implementation('fr.minuskube.inv:smart-invs:1.2.7')
+}
+
+group = 'vxrp.me'
+version = '0.6.1'
+description = 'Itemcustomizer'
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
+
+tasks {
+    shadowJar {
+        relocate("fr.minuskube.inv", "me.vxrp.itemcustomizer.smartinvs")
+    }
+    build {
+        dependsOn(shadowJar)
+    }
+}
