@@ -4,6 +4,18 @@ import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
+import me.vxrp.itemcustomizer.CreateItem;
+import me.vxrp.itemcustomizer.Itemcustomizer;
+import me.vxrp.itemcustomizer.Storage.EditingStorage;
+import me.vxrp.itemcustomizer.Storage.ResetStorage;
+import me.vxrp.itemcustomizer.menus.attributemodifier.AttributeModifierMenu;
+import me.vxrp.itemcustomizer.menus.color.ColorMenu;
+import me.vxrp.itemcustomizer.menus.effects.effectstypeonetwo.EffectsTypeMenuOne;
+import me.vxrp.itemcustomizer.menus.enchants.EnchantsOne;
+import me.vxrp.itemcustomizer.menus.itemflags.ItemFlagMenu;
+import me.vxrp.itemcustomizer.menus.items.GeneralItems;
+import me.vxrp.itemcustomizer.menus.setValues.SetDisplayNameMenu;
+import me.vxrp.itemcustomizer.util.ItemBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,19 +25,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import me.vxrp.itemcustomizer.CreateItem;
-import me.vxrp.itemcustomizer.Itemcustomizer;
-import me.vxrp.itemcustomizer.Storage.EditingStorage;
-import me.vxrp.itemcustomizer.Storage.ResetStorage;
-import me.vxrp.itemcustomizer.menus.lore.LoreMenu;
-import me.vxrp.itemcustomizer.menus.setValues.SetDisplayNameMenu;
-import me.vxrp.itemcustomizer.menus.attributemodifier.AttributeModifierMenu;
-import me.vxrp.itemcustomizer.menus.color.ColorMenu;
-import me.vxrp.itemcustomizer.menus.effects.effectstypeonetwo.EffectsTypeMenuOne;
-import me.vxrp.itemcustomizer.menus.enchants.EnchantsOne;
-import me.vxrp.itemcustomizer.menus.itemflags.ItemFlagMenu;
-import me.vxrp.itemcustomizer.menus.items.GeneralItems;
-import me.vxrp.itemcustomizer.util.ItemBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -234,7 +233,7 @@ public class EditMenu implements InventoryProvider {
                 .build();
         contents.set(4, 2, ClickableItem.of(lore, e -> {
             if (e.isLeftClick()) {
-                LoreMenu.openMenu(player, plugin);
+                player.sendMessage(ChatColor.RED + "Feature WIP, coming soon");
             }
         }));
 
