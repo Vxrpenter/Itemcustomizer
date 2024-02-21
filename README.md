@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="logo" src="https://github.com/Vxrpenter/Itemcustomizer/assets/110356385/80eec3cd-74a6-4173-bae9-cfc26d17478d">
+  <img alt="logo" src="https://github.com/Vxrpenter/Itemcustomizer/assets/110356385/d6179a53-b250-4d28-b4d1-2fa0bdfede0a">
 </div>
 
 ---
