@@ -14,7 +14,7 @@
 >   This plugin is a pre-release, some features may not work yet or bugs may occur!!!
 > </details>
 
-With this plugin you are able to modify/edit items ingame, you can do thisusing the Itemcustomizer gui.
+With this plugin you are able to modify/edit items, using a gui
 
 **Supported Versions:** `1.19`, `1.19.1`, `1.19.2`, `1.19.3`, `1.19.4`, `1.20`
 
