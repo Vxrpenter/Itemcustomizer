@@ -20,9 +20,11 @@ With this plugin you are able to modify/edit items, using a gui
 
 ## Commands
 
-- `/edit` just use this commands when holding an item in your hand, the gui will open und you
-                 will be able to customize the item to your liking
-- `/itemcustomizer|customizer` currently not working
+| Command | Aliases| Permission | Description|
+| --- | --- | --- | --- |
+| Itemcustomizer | `customizer` | `customize.use` | Command to open the itemcustomizer menu/reload the config: `/itemcustomizer reloadconfig` |
+| edit | `edititem` | `customize.edit` | When you are using this command while holding an item in your hand, the edit menu will open and you are free to customize the item to your liking |
+| forceedit | `forceedititem` | `customize.admin` | When you are using this command while holding an item in your hand and it being on the block list, the edit menu will open and you are free to customize the item to your liking  |
 
 ## Permissions
 - `customize.use` | to use the /itemcustomizer command
