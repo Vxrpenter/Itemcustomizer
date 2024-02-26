@@ -1,20 +1,16 @@
 package me.vxrp.itemcustomizer;
 
 import fr.minuskube.inv.InventoryManager;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.java.JavaPlugin;
-import me.vxrp.itemcustomizer.Storage.EditingStorage;
 import me.vxrp.itemcustomizer.commands.EditCommand;
 import me.vxrp.itemcustomizer.commands.ForceEditCommand;
 import me.vxrp.itemcustomizer.commands.ItemCustomizerCommand;
 import me.vxrp.itemcustomizer.tabcompletion.ItemCustomizerTabComleter;
 import me.vxrp.itemcustomizer.util.version.UpdateChecker;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Itemcustomizer extends JavaPlugin implements Listener {
     private static InventoryManager invManager;
@@ -56,19 +52,5 @@ public final class Itemcustomizer extends JavaPlugin implements Listener {
                 console.sendMessage("[ItemCustomizer] " + ChatColor.BLUE + "--> https://modrinth.com/plugin/itemcustomizer/version/" + version);
             }
         });
-    }
-    @EventHandler
-    public void onJoin(PlayerJoinEvent e) {
-        EditingStorage.setStorage(e.getPlayer().getUniqueId());
-
-        if (!this.getConfig().getBoolean("notify_when_outdated")) return;
-        new UpdateChecker(this, "Itemcustomizer", "Beta").getLatestVersion(version -> {
-            if (this.getDescription().getVersion().equalsIgnoreCase(version)) return;
-            Player player = e.getPlayer();
-            if (!player.hasPermission("customize.update")) return;
-            player.sendMessage(ChatColor.RED + "There's an update for ItemCustomizer, get the latest version on Modrinth:");
-            player.sendMessage(ChatColor.BLUE + "--> https://modrinth.com/plugin/itemcustomizer/version/" + version);
-        });
-
     }
 }

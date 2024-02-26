@@ -13,7 +13,7 @@ import me.vxrp.itemcustomizer.util.SkullBuilder;
 import java.util.*;
 
 public class LoreMenu implements InventoryProvider {
-    Map<UUID, List<Component>> loreMap = new HashMap<>();
+    public static Map<UUID, List<Component>> loreMap = new HashMap<>();
     Map<UUID, Integer> loreSize = new HashMap<>();
     private final Itemcustomizer plugin;
     public LoreMenu(me.vxrp.itemcustomizer.Itemcustomizer itemcustomizer) {
@@ -37,7 +37,9 @@ public class LoreMenu implements InventoryProvider {
         contents.set(1, 2, ClickableItem.of(SkullBuilder.createCustomSkull("badc048a7ce78f7dad72a07da27d85c0916881e5522eeed1e3daf217a38c1a",
                 "&bAdd Lore Line"), e -> {
             if (!e.isLeftClick()) return;
+            if (loreMap.get(player.getUniqueId()).isEmpty()) {
 
+            }
         }));
     }
 

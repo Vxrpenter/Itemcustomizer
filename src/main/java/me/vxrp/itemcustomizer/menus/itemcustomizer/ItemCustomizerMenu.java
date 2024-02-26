@@ -4,16 +4,16 @@ import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
+import me.vxrp.itemcustomizer.Itemcustomizer;
+import me.vxrp.itemcustomizer.menus.itemcustomizer.adminpanel.AdminMenu;
+import me.vxrp.itemcustomizer.menus.items.GeneralItems;
+import me.vxrp.itemcustomizer.util.ItemBuilder;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import me.vxrp.itemcustomizer.Itemcustomizer;
-import me.vxrp.itemcustomizer.menus.itemcustomizer.adminpanel.AdminMenu;
-import me.vxrp.itemcustomizer.menus.items.GeneralItems;
-import me.vxrp.itemcustomizer.util.ItemBuilder;
 
 import java.util.Objects;
 
