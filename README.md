@@ -16,7 +16,7 @@
 
 With this plugin you are able to modify/edit items, using a gui
 
-**Supported Versions:** `1.19`, `1.19.1`, `1.19.2`, `1.19.3`, `1.19.4`, `1.20`
+**Supported Versions:** `1.19 - 1.20`
 
 ## Commands
 
